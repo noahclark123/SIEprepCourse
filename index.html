@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIE Exam Course | Securities Industry Essentials</title>
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+        }
+        
+        .features {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--secondary-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .modules {
+            padding: 4rem 0;
+            background-color: var(--light-bg);
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .module-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .module-img {
+            height: 200px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-size: 3rem;
+        }
+        
+        .module-content {
+            padding: 1.5rem;
+        }
+        
+        .module-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .module-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonials {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        
+        .author-info h4 {
+            color: var(--primary-color);
+        }
+        
+        .author-info p {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+        
+        .cta {
+            padding: 4rem 0;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+                display: none;
+            }
+            
+            nav.show {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Font Awesome Icons (using Unicode for simplicity) */
+        .fa-book:before {
+            content: "📚";
+        }
+        .fa-graduation-cap:before {
+            content: "🎓";
+        }
+        .fa-check-circle:before {
+            content: "✅";
+        }
+        .fa-brain:before {
+            content: "🧠";
+        }
+        .fa-chart-line:before {
+            content: "📈";
+        }
+        .fa-shield-alt:before {
+            content: "🛡️";
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#modules">Course Modules</a></li>
+                    <li><a href="chapters/study_guide.html">Study Guide</a></li>
+                    <li><a href="chapters/final_test.html">Practice Test</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Master the Securities Industry Essentials Exam</h2>
+            <p>A comprehensive, sequential learning approach designed to help you understand the fundamentals of the securities industry and pass the SIE exam with confidence.</p>
+            <a href="#modules" class="btn">Start Learning</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Course Features</h2>
+                <p>Our SIE exam course is designed with your success in mind, offering a structured approach to learning the essential concepts tested on the exam.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-book"></i>
+                    <h3>Comprehensive Content</h3>
+                    <p>In-depth coverage of all four SIE exam content areas with the correct proportional focus based on the exam weights.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-graduation-cap"></i>
+                    <h3>Sequential Learning</h3>
+                    <p>Each chapter builds upon previous knowledge, creating a logical progression that enhances understanding and retention.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-check-circle"></i>
+                    <h3>Chapter Summaries</h3>
+                    <p>Concise summaries at the end of each chapter to reinforce key concepts and facilitate quick review.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-brain"></i>
+                    <h3>Memory Aids & Acronyms</h3>
+                    <p>Helpful memory techniques and acronyms to make complex concepts easier to remember for the exam.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-chart-line"></i>
+                    <h3>Practice Questions</h3>
+                    <p>SIE-style practice questions with detailed explanations to test your knowledge and build confidence.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-shield-alt"></i>
+                    <h3>Final Practice Test</h3>
+                    <p>A comprehensive 75-question practice test that simulates the actual SIE exam experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" class="modules">
+        <div class="container">
+            <div class="section-header">
+                <h2>Course Modules</h2>
+                <p>Our course is organized into modules that align with the SIE exam content outline, ensuring you're studying the right material in the right proportions.</p>
+            </div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-img">
+                        <i class="fa-book"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 1: SIE Exam Overview</h3>
+                        <p>Learn about the exam structure, format, and effective study strategies to prepare efficiently.</p>
+                        <a href="chapters/chapter1.html" class="btn">Start Module</a>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-img">
+                        <i class="fa-graduation-cap"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 2: Knowledge of Capital Markets</h3>
+                        <p>Understand regulatory entities, market structure, economic factors, and securities offerings.</p>
+                        <a href="chapters/chapter2.html" class="btn">Start Module</a>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-img">
+                        <i class="fa-chart-line"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 3: Products and Their Risks</h3>
+                        <p>Learn about equity securities, debt instruments, options, packaged products, and investment risks.</p>
+                        <a href="chapters/chapter3.html" class="btn">Start Module</a>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-img">
+                        <i class="fa-shield-alt"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 4: Trading and Customer Accounts</h3>
+                        <p>Understand trading, settlement, customer accounts, communications, and prohibited activities.</p>
+                        <a href="chapters/chapter4.html" class="btn">Start Module</a>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-img">
+                        <i class="fa-check-circle"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 5: Regulatory Framework</h3>
+                        <p>Learn about SRO regulatory requirements, business conduct, and customer protection.</p>
+                        <a href="chapters/chapter5.html" class="btn">Start Module</a>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-img">
+                        <i class="fa-brain"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 6: Final Exam Preparation</h3>
+                        <p>Review key concepts, take practice tests, and get final tips for exam success.</p>
+                        <a href="chapters/final_test.html" class="btn">Take Practice Test</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Ace Your SIE Exam?</h2>
+            <p>Start your journey to becoming a securities industry professional with our comprehensive SIE exam course.</p>
+            <a href="chapters/study_guide.html" class="btn">View Study Guide</a>
+        </div>
+    </section>
+
+    <section class="additional-resources">
+        <div class="container">
+            <div class="section-header">
+                <h2>Additional Resources</h2>
+                <p>Enhance your learning with these supplementary materials designed to reinforce key concepts and provide additional practice.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-brain"></i>
+                    <h3>Memory Aids & Acronyms</h3>
+                    <p>Helpful techniques to remember complex concepts and relationships for the exam.</p>
+                    <a href="chapters/memory_aids.html" class="btn">View Memory Aids</a>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-book"></i>
+                    <h3>Additional Resources</h3>
+                    <p>Recommended books, websites, and tools to supplement your SIE exam preparation.</p>
+                    <a href="chapters/resources.html" class="btn">View Resources</a>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-graduation-cap"></i>
+                    <h3>Comprehensive Study Guide</h3>
+                    <p>A complete reference guide with study strategies, content summaries, and exam preparation tips.</p>
+                    <a href="chapters/study_guide.html" class="btn">View Study Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#modules">Modules</a>
+                <a href="chapters/study_guide.html">Study Guide</a>
+                <a href="chapters/final_test.html">Practice Test</a>
+            </div>
+            <p class="copyright">© 2025 SIE Exam Course. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

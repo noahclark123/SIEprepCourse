@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: Regulatory Entities, Agencies, and Market Participants | SIE Exam Course</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Chapter Template Styles */
+        .chapter-container {
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+        
+        .sidebar {
+            width: 280px;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 1.5rem;
+            position: sticky;
+            top: 60px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .sidebar-nav ul {
+            list-style: none;
+        }
+        
+        .sidebar-nav ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s;
+        }
+        
+        .sidebar-nav ul li a:hover,
+        .sidebar-nav ul li a.active {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .sidebar-nav ul li ul {
+            margin-left: 1rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .sidebar-nav ul li.active ul {
+            display: block;
+        }
+        
+        .chapter-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .chapter-header {
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .chapter-header .breadcrumb {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section {
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .chapter-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .chapter-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section ul,
+        .chapter-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section ul li,
+        .chapter-section ol li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .summary-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .summary-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .term-list {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .term-list h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .term-list dl dt {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 1rem;
+        }
+        
+        .term-list dl dd {
+            margin-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .practice-questions {
+            margin: 2rem 0;
+        }
+        
+        .practice-questions h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .question {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question p {
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .options label {
+            display: block;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .options label:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .options input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        .answer-explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e8f4f8;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+        
+        .answer-explanation.show {
+            display: block;
+        }
+        
+        .chapter-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .nav-button.prev::before {
+            content: '← ';
+        }
+        
+        .nav-button.next::after {
+            content: ' →';
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .chapter-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#modules">Course Modules</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../glossary.html">Glossary</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="chapter-container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Course Navigation</div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="chapter1.html">Chapter 1: SIE Exam Overview</a>
+                    </li>
+                    <li class="active">
+                        <a href="chapter2.html" class="active">Chapter 2: Regulatory Entities</a>
+                        <ul>
+                            <li><a href="#sec">The SEC and Its Role</a></li>
+                            <li><a href="#sros">Self-Regulatory Organizations</a></li>
+                            <li><a href="#other-regulators">Other Regulators</a></li>
+                            <li><a href="#market-participants">Market Participants</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="chapter3.html">Chapter 3: Market Structure</a>
+                    </li>
+                    <li>
+                        <a href="chapter4.html">Chapter 4: Offerings and Regulations</a>
+                    </li>
+                    <li>
+                        <a href="chapter5.html">Chapter 5: Equity Securities</a>
+                    </li>
+                    <li>
+                        <a href="chapter6.html">Chapter 6: Debt Instruments</a>
+                    </li>
+                    <!-- Additional chapters would be listed here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="chapter-content">
+            <div class="chapter-header">
+                <div class="breadcrumb">Module 2 > Chapter 2</div>
+                <h1>Regulatory Entities, Agencies, and Market Participants</h1>
+            </div>
+
+            <div class="chapter-section">
+                <h2>Introduction</h2>
+                <p>The securities industry operates within a complex regulatory framework designed to protect investors, maintain fair and orderly markets, and facilitate capital formation. This chapter explores the key regulatory entities, agencies, and market participants that form the foundation of the U.S. securities industry.</p>
+                
+                <p>Understanding the roles and responsibilities of these entities is crucial for anyone working in the securities industry. As an engineering graduate transitioning to finance, you'll find that this regulatory structure provides the rules and boundaries within which financial innovation and market activities take place.</p>
+                
+                <p>This chapter builds upon the industry overview from Chapter 1, providing a more detailed examination of the regulatory landscape and the various participants in the securities markets.</p>
+            </div>
+
+            <div class="chapter-section" id="sec">
+                <h2>The Securities and Exchange Commission (SEC)</h2>
+                
+                <h3>Purpose and Mission</h3>
+                <p>The Securities and Exchange Commission (SEC) is the primary federal regulatory agency overseeing the securities industry in the United States. Created by the Securities Exchange Act of 1934 in response to the stock market crash of 1929, the SEC's mission is threefold:</p>
+                <ul>
+                    <li><strong>Protect investors</strong> from fraud and other abuses</li>
+                    <li><strong>Maintain fair, orderly, and efficient markets</strong> that facilitate capital formation</li>
+                    <li><strong>Facilitate capital formation</strong> to support economic growth and job creation</li>
+                </ul>
+                
+                <h3>Structure and Organization</h3>
+                <p>The SEC is led by five commissioners appointed by the President and confirmed by the Senate. To ensure political balance, no more than three commissioners can belong to the same political party. The President designates one of the commissioners as the Chairman, who serves as the agency's chief executive.</p>
+                
+                <p>The SEC is organized into five divisions and numerous offices:</p>
+                <ul>
+                    <li><strong>Division of Corporation Finance</strong>: Reviews corporate disclosures and registration statements</li>
+                    <li><strong>Division of Trading and Markets</strong>: Regulates broker-dealers, securities exchanges, and other market participants</li>
+                    <li><strong>Division of Investment Management</strong>: Oversees investment companies and investment advisers</li>
+                    <li><strong>Division of Enforcement</strong>: Investigates securities law violations and brings civil actions</li>
+                    <li><strong>Division of Economic and Risk Analysis</strong>: Provides economic analysis to support SEC activities</li>
+                </ul>
+                
+                <h3>Jurisdiction and Authority</h3>
+                <p>The SEC's authority extends to:</p>
+                <ul>
+                    <li>Securities exchanges, broker-dealers, and other market participants</li>
+                    <li>Investment advisers and investment companies</li>
+                    <li>Public companies and their disclosures</li>
+                    <li>Securities offerings and registrations</li>
+                </ul>
+                
+                <p>The SEC enforces various federal securities laws, including:</p>
+                <ul>
+                    <li>Securities Act of 1933</li>
+                    <li>Securities Exchange Act of 1934</li>
+                    <li>Investment Company Act of 1940</li>
+                    <li>Investment Advisers Act of 1940</li>
+                    <li>Sarbanes-Oxley Act of 2002</li>
+                    <li>Dodd-Frank Wall Street Reform and Consumer Protection Act of 2010</li>
+                    <li>Jumpstart Our Business Startups (JOBS) Act of 2012</li>
+                </ul>
+                
+                <h3>Regulatory Functions</h3>
+                <p>The SEC fulfills its mission through several key functions:</p>
+                <ul>
+                    <li><strong>Rulemaking</strong>: Developing and adopting rules to implement securities laws</li>
+                    <li><strong>Examination</strong>: Conducting inspections and examinations of regulated entities</li>
+                    <li><strong>Enforcement</strong>: Investigating potential violations and bringing civil actions</li>
+                    <li><strong>Disclosure Review</strong>: Reviewing corporate filings and disclosures</li>
+                    <li><strong>Investor Education</strong>: Providing educational resources to help investors make informed decisions</li>
+                </ul>
+            </div>
+
+            <div class="chapter-section" id="sros">
+                <h2>Self-Regulatory Organizations (SROs)</h2>
+                
+                <h3>Purpose and Mission of SROs</h3>
+                <p>Self-regulatory organizations (SROs) are non-governmental entities that have the power to create and enforce industry regulations and standards. They operate under SEC oversight and play a crucial role in regulating securities markets and market participants.</p>
+                
+                <p>The primary purposes of SROs include:</p>
+                <ul>
+                    <li>Establishing and enforcing rules for their members</li>
+                    <li>Promoting ethical business practices</li>
+                    <li>Protecting investors and the public interest</li>
+                    <li>Providing a mechanism for industry self-regulation</li>
+                </ul>
+                
+                <h3>Financial Industry Regulatory Authority (FINRA)</h3>
+                <p>FINRA is the largest SRO overseeing broker-dealers in the United States. Formed in 2007 through the merger of the National Association of Securities Dealers (NASD) and the regulatory arm of the New York Stock Exchange (NYSE), FINRA is responsible for:</p>
+                <ul>
+                    <li>Registering and examining broker-dealers and their associated persons</li>
+                    <li>Writing and enforcing rules governing broker-dealer conduct</li>
+                    <li>Administering qualification examinations, including the SIE exam</li>
+                    <li>Operating the Central Registration Depository (CRD) system</li>
+                    <li>Providing market surveillance and trade reporting facilities</li>
+                    <li>Administering dispute resolution forums for investors and industry disputes</li>
+                </ul>
+                
+                <p>FINRA's authority extends to all broker-dealers doing business with the public in the U.S. It has the power to fine, suspend, or expel firms and individuals for violations of its rules.</p>
+                
+                <h3>Other SROs</h3>
+                <p>In addition to FINRA, other important SROs include:</p>
+                <ul>
+                    <li><strong>Securities Exchanges</strong>: Such as the New York Stock Exchange (NYSE) and Nasdaq, which establish and enforce rules for listed companies and exchange members</li>
+                    <li><strong>Municipal Securities Rulemaking Board (MSRB)</strong>: Regulates municipal securities dealers and municipal advisors</li>
+                    <li><strong>Chicago Board Options Exchange (CBOE)</strong>: Regulates options trading and exchange members</li>
+                </ul>
+                
+                <h3>Jurisdiction and Authority of SROs</h3>
+                <p>SROs derive their authority from the Securities Exchange Act of 1934, which requires broker-dealers to be members of a registered SRO. Their jurisdiction typically includes:</p>
+                <ul>
+                    <li>Member firms and their associated persons</li>
+                    <li>Trading activities on exchanges or in specific markets</li>
+                    <li>Listing standards for securities (in the case of exchanges)</li>
+                </ul>
+                
+                <p>While SROs have significant regulatory authority, they operate under SEC oversight. The SEC reviews and approves SRO rules, can abrogate or amend SRO rules, and can review SRO disciplinary actions.</p>
+            </div>
+
+            <div class="chapter-section" id="other-regulators">
+                <h2>Other Regulators and Agencies</h2>
+                
+                <h3>Department of the Treasury/IRS</h3>
+                <p>The Department of the Treasury plays several important roles in the securities industry:</p>
+                <ul>
+                    <li>Issues and manages government debt securities (Treasury bills, notes, and bonds)</li>
+                    <li>Implements economic and tax policies that affect securities markets</li>
+                    <li>Houses the Office of the Comptroller of the Currency (OCC), which regulates national banks</li>
+                    <li>Contains the Financial Crimes Enforcement Network (FinCEN), which combats money laundering</li>
+                </ul>
+                
+                <p>The Internal Revenue Service (IRS), a bureau of the Treasury Department, administers tax laws that affect securities transactions, including capital gains taxes, dividend taxation, and retirement account regulations.</p>
+                
+                <h3>State Regulators</h3>
+                <p>State securities regulators enforce state securities laws, commonly known as "blue sky laws." These laws existed before federal securities regulation and continue to play an important role in investor protection. State regulators typically:</p>
+                <ul>
+                    <li>Register certain securities offerings within their state</li>
+                    <li>License broker-dealers and investment advisers doing business in their state</li>
+                    <li>Investigate securities fraud and other violations</li>
+                    <li>Bring enforcement actions against violators</li>
+                </ul>
+                
+                <p>The North American Securities Administrators Association (NASAA) is an organization of state and provincial securities regulators that coordinates activities among state regulators.</p>
+                
+                <h3>The Federal Reserve</h3>
+                <p>The Federal Reserve System (the Fed) is the central bank of the United States. While primarily focused on monetary policy and banking regulation, the Fed affects securities markets through:</p>
+                <ul>
+                    <li>Setting interest rates, which influence bond prices and equity valuations</li>
+                    <li>Implementing monetary policy that affects market liquidity</li>
+                    <li>Regulating bank holding companies and certain financial institutions</li>
+                    <li>Setting margin requirements for securities purchases (Regulation T)</li>
+                </ul>
+                
+                <h3>Securities Investor Protection Corporation (SIPC)</h3>
+                <p>SIPC is not a regulatory agency but a nonprofit membership corporation created by the Securities Investor Protection Act of 1970. SIPC's primary role is to:</p>
+                <ul>
+                    <li>Protect customers of failed broker-dealers by returning their cash and securities</li>
+                    <li>Provide insurance coverage of up to $500,000 per customer (including up to $250,000 for cash)</li>
+                    <li>Liquidate failed broker-dealers and distribute customer assets</li>
+                </ul>
+                
+                <p>SIPC protection does not cover market losses, unsuitable investments, or fraud. It only protects against the failure of a broker-dealer.</p>
+                
+                <h3>Federal Deposit Insurance Corporation (FDIC)</h3>
+                <p>The FDIC insures deposits in banks and savings associations. While primarily focused on banking, the FDIC affects the securities industry by:</p>
+                <ul>
+                    <li>Insuring bank deposits up to $250,000 per depositor, per bank, per ownership category</li>
+                    <li>Resolving failed banks, which may involve the transfer of securities-related activities</li>
+                    <li>Regulating certain banking activities that may involve securities</li>
+                </ul>
+            </div>
+
+            <div class="chapter-section" id="market-participants">
+                <h2>Market Participants and their Roles</h2>
+                
+                <h3>Investors</h3>
+                <p>Investors provide the capital that fuels the securities markets. They can be categorized in several ways:</p>
+                <ul>
+                    <li><strong>Retail Investors</strong>: Individual investors who buy and sell securities for their personal accounts</li>
+                    <li><strong>Institutional Investors</strong>: Organizations that invest on behalf of others, such as pension funds, mutual funds, insurance companies, and endowments</li>
+                    <li><strong>Accredited Investors</strong>: Individuals or entities that meet specific income, net worth, or professional criteria, allowing them access to certain unregistered securities offerings</li>
+                </ul>
+                
+                <h3>Broker-Dealers</h3>
+                <p>Broker-dealers play a central role in securities markets by facilitating transactions between buyers and sellers. They can act as:</p>
+                <ul>
+                    <li><strong>Brokers</strong>: Acting as agents for customers, executing trades on their behalf for a commission</li>
+                    <li><strong>Dealers</strong>: Acting as principals, buying and selling securities from their own inventory</li>
+                </ul>
+                
+                <p>Broker-dealers provide various services, including:</p>
+                <ul>
+                    <li><strong>Introducing Brokers</strong>: Accept customer orders but use another firm for clearing and settlement</li>
+                    <li><strong>Clearing Brokers</strong>: Process and settle trades, maintain custody of customer assets</li>
+                    <li><strong>Prime Brokers</strong>: Provide specialized services to institutional clients, particularly hedge funds</li>
+                </ul>
+                
+                <h3>Investment Advisers</h3>
+                <p>Investment advisers provide advice about securities for compensation. They have a fiduciary duty to act in their clients' best interests. Investment advisers may be:</p>
+                <ul>
+                    <li>Registered with the SEC (typically if managing $110 million or more in assets)</li>
+                    <li>Registered with state securities regulators (typically if managing less than $110 million)</li>
+                </ul>
+                
+                <p>Investment advisers offer services such as portfolio management, financial planning, and investment consulting.</p>
+                
+                <h3>Municipal Advisors</h3>
+                <p>Municipal advisors provide advice to municipal entities regarding municipal financial products or the issuance of municipal securities. They must register with the SEC and MSRB and have a fiduciary duty to their municipal clients.</p>
+                
+                <h3>Issuers and Underwriters</h3>
+                <p>Issuers are entities that offer securities to investors to raise capital. They include:</p>
+                <ul>
+                    <li>Corporations issuing stocks and bonds</li>
+                    <li>Governments and municipalities issuing bonds</li>
+                    <li>Investment companies issuing fund shares</li>
+                </ul>
+                
+                <p>Underwriters are typically investment banks that help issuers bring securities to market by:</p>
+                <ul>
+                    <li>Purchasing securities from the issuer for resale to the public</li>
+                    <li>Marketing the securities to potential investors</li>
+                    <li>Providing price stability during the offering</li>
+                    <li>Conducting due diligence on the issuer</li>
+                </ul>
+                
+                <h3>Traders and Market Makers</h3>
+                <p>Traders buy and sell securities to profit from price movements or spreads. Market makers are dealers who stand ready to buy and sell specific securities on a regular and continuous basis, providing liquidity to the market.</p>
+                
+                <h3>Custodians and Trustees</h3>
+                <p>Custodians safeguard financial assets for clients, maintaining records and processing transactions. Trustees hold assets for the benefit of others and have fiduciary responsibilities to beneficiaries.</p>
+                
+                <h3>Transfer Agents</h3>
+                <p>Transfer agents maintain records of securities ownership, process transfers of ownership, distribute dividends and interest, and communicate with shareholders on behalf of issuers.</p>
+                
+                <h3>Depositories and Clearing Corporations</h3>
+                <p>These entities facilitate the settlement of securities transactions and safekeeping of securities:</p>
+                <ul>
+                    <li><strong>Depository Trust & Clearing Corporation (DTCC)</strong>: Parent company of several clearing and settlement entities</li>
+                    <li><strong>Depository Trust Company (DTC)</strong>: Central securities depository for equities and corporate and municipal bonds</li>
+                    <li><strong>National Securities Clearing Corporation (NSCC)</strong>: Provides clearing, settlement, and risk management services</li>
+                    <li><strong>Options Clearing Corporation (OCC)</strong>: Clears and settles options transactions</li>
+                </ul>
+            </div>
+
+            <div class="summary-box">
+                <h3>Chapter Summary</h3>
+                <ul>
+                    <li>The <strong>Securities and Exchange Commission (SEC)</strong> is the primary federal regulator of securities markets, with a mission to protect investors, maintain fair markets, and facilitate capital formation.</li>
+                    <li><strong>Self-Regulatory Organizations (SROs)</strong> like FINRA, NYSE, Nasdaq, and MSRB operate under SEC oversight to regulate their members and markets.</li>
+                    <li>Other important regulators include the <strong>Department of the Treasury/IRS</strong>, <strong>state securities regulators</strong>, the <strong>Federal Reserve</strong>, <strong>SIPC</strong>, and the <strong>FDIC</strong>.</li>
+                    <li>Key market participants include <strong>investors</strong> (retail, institutional, accredited), <strong>broker-dealers</strong> (brokers, dealers, introducing/clearing/prime brokers), <strong>investment advisers</strong>, <strong>municipal advisors</strong>, <strong>issuers and underwriters</strong>, <strong>traders and market makers</strong>, <strong>custodians and trustees</strong>, <strong>transfer agents</strong>, and <strong>depositories and clearing corporations</strong>.</li>
+                    <li>Each participant plays a specific role in the functioning of securities markets, subject to the regulatory framework established by various regulatory entities.</li>
+                </ul>
+            </div>
+
+            <div class="term-list">
+                <h3>Key Terms and Acronyms</h3>
+                <dl>
+                    <dt>SEC (Securities and Exchange Commission)</dt>
+                    <dd>The primary federal regulatory agency for the securities industry, created by the Securities Exchange Act of 1934.</dd>
+                    
+                    <dt>SRO (Self-Regulatory Organization)</dt>
+                    <dd>A non-governmental entity with the power to create and enforce industry regulations, operating under SEC oversight.</dd>
+                    
+                    <dt>FINRA (Financial Industry Regulatory Authority)</dt>
+                    <dd>The largest SRO overseeing broker-dealers in the United States.</dd>
+                    
+                    <dt>MSRB (Municipal Securities Rulemaking Board)</dt>
+                    <dd>The SRO that regulates municipal securities dealers and municipal advisors.</dd>
+                    
+                    <dt>Blue Sky Laws</dt>
+                    <dd>State securities laws designed to protect investors from fraudulent offerings.</dd>
+                    
+                    <dt>SIPC (Securities Investor Protection Corporation)</dt>
+                    <dd>A nonprofit membership corporation that protects customers of failed broker-dealers.</dd>
+                    
+                    <dt>Broker-Dealer</dt>
+                    <dd>A firm that buys and sells securities for its customers (as a broker) and/or for its own account (as a dealer).</dd>
+                    
+                    <dt>Investment Adviser</dt>
+                    <dd>A person or firm that provides advice about securities for compensation and has a fiduciary duty to clients.</dd>
+                    
+                    <dt>Underwriter</dt>
+                    <dd>Typically an investment bank that helps issuers bring securities to market by purchasing securities for resale to the public.</dd>
+                    
+                    <dt>Market Maker</dt>
+                    <dd>A dealer who stands ready to buy and sell specific securities on a regular and continuous basis, providing liquidity.</dd>
+                    
+                    <dt>DTCC (Depository Trust & Clearing Corporation)</dt>
+                    <dd>Parent company of several clearing and settlement entities that facilitate securities transactions.</dd>
+                </dl>
+            </div>
+
+            <div class="practice-questions">
+                <h3>Practice Questions</h3>
+                
+                <div class="question" id="question1">
+                    <p>1. Which of the following is NOT one of the SEC's primary missions?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="a"> A. Protect investors</label>
+                        <label><input type="radio" name="q1" value="b"> B. Maintain fair, orderly, and efficient markets</label>
+                        <label><input type="radio" name="q1" value="c"> C. Facilitate capital formation</label>
+                        <label><input type="radio" name="q1" value="d"> D. Guarantee investment returns</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer1')">Show Answer</button>
+                    <div class="answer-explanation" id="answer1">
+                        <p><strong>Correct Answer: D. Guarantee investment returns</strong></p>
+                        <p>Explanation: The SEC's three-part mission is to protect investors, maintain fair, orderly, and efficient markets, and facilitate capital formation. The SEC does not guarantee investment returns; in fact, all investments involve risk, and the SEC's role is to ensure proper disclosure of those risks, not to eliminate them.</p>
+                    </div>
+                </div>
+                
+                <div class="question" id="question2">
+                    <p>2. FINRA is responsible for all of the following EXCEPT:</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="a"> A. Registering and examining broker-dealers</label>
+                        <label><input type="radio" name="q2" value="b"> B. Administering qualification examinations like the SIE</label>
+                        <label><input type="radio" name="q2" value="c"> C. Approving registration statements for new securities offerings</label>
+                        <label><input type="radio" name="q2" value="d"> D. Operating the Central Registration Depository (CRD) system</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer2')">Show Answer</button>
+                    <div class="answer-explanation" id="answer2">
+                        <p><strong>Correct Answer: C. Approving registration statements for new securities offerings</strong></p>
+                        <p>Explanation: Approving registration statements for new securities offerings is a responsibility of the SEC's Division of Corporation Finance, not FINRA. FINRA is responsible for registering and examining broker-dealers, administering qualification examinations, and operating the CRD system, among other functions.</p>
+                    </div>
+                </div>
+                
+                <div class="question" id="question3">
+                    <p>3. Which of the following best describes the relationship between the SEC and SROs?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="a"> A. SROs operate independently with no SEC oversight</label>
+                        <label><input type="radio" name="q3" value="b"> B. SROs are divisions within the SEC</label>
+                        <label><input type="radio" name="q3" value="c"> C. SROs operate under SEC oversight, with the SEC reviewing and approving SRO rules</label>
+                        <label><input type="radio" name="q3" value="d"> D. SROs have authority over the SEC in matters of securities regulation</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer3')">Show Answer</button>
+                    <div class="answer-explanation" id="answer3">
+                        <p><strong>Correct Answer: C. SROs operate under SEC oversight, with the SEC reviewing and approving SRO rules</strong></p>
+                        <p>Explanation: SROs like FINRA operate under SEC oversight. The SEC reviews and approves SRO rules, can abrogate or amend SRO rules, and can review SRO disciplinary actions. SROs are not divisions of the SEC but separate entities with delegated regulatory authority.</p>
+                    </div>
+                </div>
+                
+                <div class="question" id="question4">
+                    <p>4. SIPC protection covers which of the following?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="a"> A. Market losses in a customer's account</label>
+                        <label><input type="radio" name="q4" value="b"> B. Losses due to unsuitable investment recommendations</label>
+                        <label><input type="radio" name="q4" value="c"> C. Return of customer cash and securities when a broker-dealer fails</label>
+                        <label><input type="radio" name="q4" value="d"> D. Guaranteeing the value of investments</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer4')">Show Answer</button>
+                    <div class="answer-explanation" id="answer4">
+                        <p><strong>Correct Answer: C. Return of customer cash and securities when a broker-dealer fails</strong></p>
+                        <p>Explanation: SIPC protects customers of failed broker-dealers by returning their cash and securities, up to $500,000 per customer (including up to $250,000 for cash). SIPC does not protect against market losses, unsuitable investments, or fraud. It only protects against the failure of a broker-dealer.</p>
+                    </div>
+                </div>
+                
+                <div class="question" id="question5">
+                    <p>5. When a firm acts as both a broker and a dealer, it is known as a:</p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="a"> A. Dual registrant</label>
+                        <label><input type="radio" name="q5" value="b"> B. Broker-dealer</label>
+                        <label><input type="radio" name="q5" value="c"> C. Market maker</label>
+                        <label><input type="radio" name="q5" value="d"> D. Prime broker</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer5')">Show Answer</button>
+                    <div class="answer-explanation" id="answer5">
+                        <p><strong>Correct Answer: B. Broker-dealer</strong></p>
+                        <p>Explanation: A firm that acts as both a broker (executing trades for customers as an agent) and a dealer (buying and selling securities from its own inventory as a principal) is called a broker-dealer. Most securities firms are registered as broker-dealers, allowing them to operate in both capacities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-navigation">
+                <a href="chapter1.html" class="nav-button prev">Previous Chapter: SIE Exam Overview</a>
+                <a href="chapter3.html" class="nav-button next">Next Chapter: Market Structure</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Show answer function
+        function showAnswer(answerId) {
+            document.getElementById(answerId).classList.toggle('show');
+        }
+        
+        // Sidebar active state
+        document.querySelectorAll('.sidebar-nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                // Remove active class from all links
+                document.querySelectorAll('.sidebar-nav ul li a').forEach(l => {
+                    l.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

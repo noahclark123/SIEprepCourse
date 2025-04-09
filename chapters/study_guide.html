@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIE Exam Study Guide | SIE Exam Course</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .study-guide-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .study-guide-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .study-guide-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .study-guide-header p {
+            color: var(--secondary-color);
+        }
+        
+        .study-guide-intro {
+            margin-bottom: 2rem;
+        }
+        
+        .study-guide-section {
+            margin-bottom: 3rem;
+        }
+        
+        .study-guide-section h2 {
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .study-guide-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .study-guide-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .study-guide-section ul,
+        .study-guide-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .study-guide-section ul li,
+        .study-guide-section ol li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .key-concept {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .key-concept h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .study-tip {
+            background-color: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .study-tip h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .formula {
+            background-color: #e8f4f8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table th {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        .study-plan {
+            background-color: #e8f4f8;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .study-plan h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .study-plan table {
+            margin-top: 1rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .toc {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .toc h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .toc ul ul {
+            margin-left: 1.5rem;
+        }
+        
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .toc a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#modules">Course Modules</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../glossary.html">Glossary</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="study-guide-container">
+        <div class="study-guide-header">
+            <h1>SIE Exam Comprehensive Study Guide</h1>
+            <p>Your complete reference for exam preparation and success</p>
+        </div>
+
+        <div class="study-guide-intro">
+            <p>Welcome to the comprehensive study guide for the Securities Industry Essentials (SIE) exam. This guide is designed to help you efficiently prepare for the exam by focusing on the most important concepts, providing effective study strategies, and offering a structured approach to mastering the material.</p>
+            <p>The SIE exam tests your knowledge of basic securities industry information including fundamental concepts, products, risks, regulatory agencies, and prohibited practices. This study guide covers all four major content areas of the exam in the correct proportions to ensure you're focusing your efforts appropriately.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#exam-overview">1. SIE Exam Overview</a></li>
+                <li><a href="#study-strategies">2. Effective Study Strategies</a></li>
+                <li><a href="#content-area-1">3. Knowledge of Capital Markets (16%)</a>
+                    <ul>
+                        <li><a href="#regulatory-entities">3.1 Regulatory Entities, Agencies, and Market Participants</a></li>
+                        <li><a href="#market-structure">3.2 Market Structure and Economic Factors</a></li>
+                        <li><a href="#offerings">3.3 Offerings and Securities Act Regulations</a></li>
+                    </ul>
+                </li>
+                <li><a href="#content-area-2">4. Understanding Products and Their Risks (44%)</a>
+                    <ul>
+                        <li><a href="#equity-securities">4.1 Equity Securities</a></li>
+                        <li><a href="#debt-instruments">4.2 Debt Instruments</a></li>
+                        <li><a href="#options">4.3 Options and Risk Strategies</a></li>
+                        <li><a href="#packaged-products">4.4 Packaged Products and Alternative Investments</a></li>
+                        <li><a href="#investment-risks">4.5 Investment Risks</a></li>
+                    </ul>
+                </li>
+                <li><a href="#content-area-3">5. Understanding Trading, Customer Accounts and Prohibited Activities (31%)</a>
+                    <ul>
+                        <li><a href="#trading">5.1 Trading, Settlement and Corporate Actions</a></li>
+                        <li><a href="#customer-accounts">5.2 Customer Accounts and Compliance</a></li>
+                        <li><a href="#communications">5.3 Customer Communications and Suitability</a></li>
+                        <li><a href="#prohibited-activities">5.4 Prohibited Activities</a></li>
+                    </ul>
+                </li>
+                <li><a href="#content-area-4">6. Overview of the Regulatory Framework (9%)</a>
+                    <ul>
+                        <li><a href="#sro-requirements">6.1 SRO Regulatory Requirements</a></li>
+                        <li><a href="#business-conduct">6.2 Business Conduct and Customer Protection</a></li>
+                    </ul>
+                </li>
+                <li><a href="#final-prep">7. Final Exam Preparation</a></li>
+                <li><a href="#resources">8. Additional Resources</a></li>
+            </ul>
+        </div>
+
+        <div id="exam-overview" class="study-guide-section">
+            <h2>1. SIE Exam Overview</h2>
+            
+            <h3>Exam Format and Structure</h3>
+            <ul>
+                <li><strong>Number of Questions:</strong> 75 multiple-choice questions (plus 10 unscored pretest questions)</li>
+                <li><strong>Time Limit:</strong> 1 hour and 45 minutes (105 minutes)</li>
+                <li><strong>Passing Score:</strong> 70% (53 out of 75 questions correct)</li>
+                <li><strong>Question Format:</strong> Multiple-choice with four options</li>
+                <li><strong>Cost:</strong> $80</li>
+                <li><strong>Prerequisites:</strong> None (no sponsorship required)</li>
+                <li><strong>Validity:</strong> 4 years from the date of passing</li>
+            </ul>
+            
+            <h3>Content Area Breakdown</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Content Area</th>
+                        <th>Weight</th>
+                        <th>Number of Questions</th>
+                    </tr>
+                    <tr>
+                        <td>Knowledge of Capital Markets</td>
+                        <td>16%</td>
+                        <td>12 questions</td>
+                    </tr>
+                    <tr>
+                        <td>Understanding Products and Their Risks</td>
+                        <td>44%</td>
+                        <td>33 questions</td>
+                    </tr>
+                    <tr>
+                        <td>Understanding Trading, Customer Accounts and Prohibited Activities</td>
+                        <td>31%</td>
+                        <td>23 questions</td>
+                    </tr>
+                    <tr>
+                        <td>Overview of the Regulatory Framework</td>
+                        <td>9%</td>
+                        <td>7 questions</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="key-concept">
+                <h4>Key Exam Concepts</h4>
+                <p>The SIE exam focuses on testing your understanding of fundamental securities industry concepts rather than memorization of specific facts. Questions often present scenarios that require application of knowledge to real-world situations. The exam includes both straightforward knowledge-based questions and more complex analytical questions.</p>
+            </div>
+        </div>
+
+        <div id="study-strategies" class="study-guide-section">
+            <h2>2. Effective Study Strategies</h2>
+            
+            <h3>Recommended Study Approach</h3>
+            <p>Based on the exam structure and content, here are effective strategies to prepare for the SIE exam:</p>
+            <ul>
+                <li><strong>Sequential Learning:</strong> Follow a structured approach, building knowledge progressively through the four content areas.</li>
+                <li><strong>Focus on Proportions:</strong> Allocate your study time according to the exam weights (e.g., spend more time on products and risks since they represent 44% of the exam).</li>
+                <li><strong>Active Learning:</strong> Don't just read passively. Take notes, create flashcards, teach concepts to others, and apply knowledge through practice questions.</li>
+                <li><strong>Spaced Repetition:</strong> Review material at increasing intervals to improve long-term retention.</li>
+                <li><strong>Practice Testing:</strong> Regularly test yourself with practice questions to reinforce learning and identify weak areas.</li>
+            </ul>
+            
+            <div class="study-plan">
+                <h3>10-Week Study Plan</h3>
+                <p>This suggested study plan is designed to cover all exam content in a systematic way, with more time allocated to heavily weighted sections.</p>
+                <table>
+                    <tr>
+                        <th>Week</th>
+                        <th>Focus Area</th>
+                        <th>Activities</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Exam Overview and Regulatory Entities</td>
+                        <td>Learn exam structure, regulatory agencies, and SROs</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Market Structure and Offerings</td>
+                        <td>Study market types, economic factors, and securities offerings</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Equity Securities</td>
+                        <td>Learn about common stock, preferred stock, rights, and warrants</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Debt Instruments</td>
+                        <td>Study Treasury, corporate, and municipal securities</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Options and Derivatives</td>
+                        <td>Learn options basics, strategies, and risk profiles</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Packaged Products and Investment Risks</td>
+                        <td>Study mutual funds, ETFs, REITs, and risk types</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Trading and Settlement</td>
+                        <td>Learn order types, settlement procedures, and corporate actions</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Customer Accounts and Communications</td>
+                        <td>Study account types, suitability, and communications rules</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Prohibited Activities and Regulatory Framework</td>
+                        <td>Learn about market manipulation, insider trading, and regulatory requirements</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Comprehensive Review and Practice Tests</td>
+                        <td>Take full-length practice tests and review weak areas</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="study-tip">
+                <h4>Study Tip: Memory Aids</h4>
+                <p>Use the memory aids provided in the Memory Aids and Acronyms section of this course to help remember complex concepts and relationships. For example:</p>
+                <ul>
+                    <li>Remember the SEC's three-part mission with "PIM" - Protect investors, Integrity of markets, Make capital formation easier.</li>
+                    <li>Remember the four types of markets with "PSTF" - Primary, Secondary, Third, Fourth.</li>
+                    <li>Remember key investment risks with "CLIMB MPF" - Credit, Liquidity, Interest rate, Market, Business, Market liquidity, Political, Foreign exchange.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content-area-1" class="study-guide-section">
+            <h2>3. Knowledge of Capital Markets (16%)</h2>
+            
+            <div id="regulatory-entities" class="study-guide-section">
+                <h3>3.1 Regulatory Entities, Agencies, and Market Participants</h3>
+                
+                <h4>Key Regulatory Entities</h4>
+                <ul>
+                    <li><strong>Securities and Exchange Commission (SEC)</strong>: Primary federal regulator of securities markets with a three-part mission to protect investors, maintain fair markets, and facilitate capital formation.</li>
+                    <li><strong>Financial Industry Regulatory Authority (FINRA)</strong>: The largest self-regulatory organization (SRO) overseeing broker-dealers.</li>
+                    <li><strong>Municipal Securities Rulemaking Board (MSRB)</strong>: SRO that regulates municipal securities dealers and municipal advisors.</li>
+                    <li><strong>State Securities Regulators</strong>: Enforce state securities laws ("blue sky laws") to protect investors from fraudulent offerings.</li>
+                </ul>
+                
+                <h4>Other Important Agencies</h4>
+                <ul>
+                    <li><strong>Federal Reserve</strong>: Central bank that influences securities markets through monetary policy and interest rate decisions.</li>
+                    <li><strong>Department of the Treasury</strong>: Issues government debt securities and implements economic policies.</li>
+                    <li><strong>Securities Investor Protection Corporation (SIPC)</strong>: Protects customers of failed broker-dealers up to $500,000 (including up to $250,000 for cash).</li>
+                </ul>
+                
+                <h4>Market Participants</h4>
+                <ul>
+                    <li><strong>Broker-Dealers</strong>: Firms that buy and sell securities for customers (as brokers) and/or for their own accounts (as dealers).</li>
+                    <li><strong>Investment Advisers</strong>: Provide advice about securities for compensation and have a fiduciary duty to clients.</li>
+                    <li><strong>Issuers</strong>: Entities that offer securities to raise capital.</li>
+                    <li><strong>Underwriters</strong>: Typically investment banks that help issuers bring securities to market.</li>
+                    <li><strong>Transfer Agents</strong>: Maintain records of securities ownership and process transfers.</li>
+                </ul>
+                
+                <div class="key-concept">
+                    <h4>Key Concept: Self-Regulatory Organizations (SROs)</h4>
+                    <p>SROs are non-governmental entities with regulatory authority over their members. They operate under SEC oversight and play a crucial role in securities industry regulation. Key SROs include FINRA, NYSE, Nasdaq, and MSRB. SROs can create and enforce rules, examine members, and take disciplinary actions.</p>
+                </div>
+            </div>
+            
+            <div id="market-structure" class="study-guide-section">
+                <h3>3.2 Market Structure and Economic Factors</h3>
+                
+                <h4>Types of Markets</h4>
+                <ul>
+                    <li><strong>Primary Market</strong>: Where new securities are issued and sold to investors for the first time.</li>
+                    <li><strong>Secondary Market</strong>: Where previously issued securities are bought and sold among investors.</li>
+                    <li><strong>Third Market</strong>: OTC trading of exchange-listed securities.</li>
+                    <li><strong>Fourth Market</strong>: Direct trading between institutions without broker-dealers.</li>
+                </ul>
+                
+                <h4>Market Structures</h4>
+                <ul>
+                    <li><strong>Exchanges</strong>: Organized marketplaces with formal rules and membership requirements (e.g., NYSE, Nasdaq).</li>
+                    <li><strong>Over-the-Counter (OTC) Market</strong>: Decentralized market where securities are traded via a network of dealers.</li>
+                    <li><strong>Alternative Trading Systems (ATS)</strong>: Electronic trading systems that match buyers and sellers but don't exercise exchange powers.</li>
+                </ul>
+                
+                <h4>Economic Factors</h4>
+                <ul>
+                    <li><strong>Interest Rates</strong>: Affect bond prices (inverse relationship) and can influence stock prices.</li>
+                    <li><strong>Inflation</strong>: Erodes purchasing power and can affect investment returns.</li>
+                    <li><strong>Monetary Policy</strong>: Federal Reserve actions to influence money supply and interest rates.</li>
+                    <li><strong>Fiscal Policy</strong>: Government spending and taxation decisions.</li>
+                    <li><strong>Business Cycle</strong>: Expansion, peak, contraction, and trough phases of economic activity.</li>
+                </ul>
+                
+                <div class="key-concept">
+                    <h4>Key Concept: Federal Reserve Impact</h4>
+                    <p>The Federal Reserve affects securities markets through several mechanisms:</p>
+                    <ul>
+                        <li><strong>Federal Funds Rate</strong>: The interest rate banks charge each other for overnight loans, which influences other interest rates throughout the economy.</li>
+                        <li><strong>Open Market Operations</strong>: Buying and selling government securities to influence money supply.</li>
+                        <li><strong>Reserve Requirements</strong>: The amount of funds banks must hold in reserve against deposits.</li>
+                        <li><strong>Margin Requirements</strong>: Regulation T governs the amount of credit broker-dealers can extend to customers for securities purchases.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="offerings" class="study-guide-section">
+                <h3>3.3 Offerings and Securities Act Regulations</h3>
+                
+                <h4>Types of Offerings</h4>
+                <ul>
+                    <li><strong>Initial Public Offering (IPO)</strong>: First sale of stock by a private company to the public.</li>
+                    <li><strong>Secondary Offering</strong>: Additional issuance of securities by a company that already has securities trading in the market.</li>
+                    <li><strong>Private Placement</strong>: Sale of securities to a limited number of qualified investors, exempt from registration.</li>
+                    <li><strong>Shelf Registration</strong>: Registration of securities that will be offered in the future, allowing issuers to access markets quickly when conditions are favorable.</li>
+                </ul>
+                
+                <h4>Securities Act Regulations</h4>
+                <ul>
+                    <li><strong>Securities Act of 1933</strong>: Requires registration of securities offerings and disclosure of material information.</li>
+                    <li><strong>Regulation D</strong>: Provides exemptions from registration for private placements.</li>
+                    <li><strong>Rule 144</strong>: Governs the resale of restricted and control securities.</li>
+                    <li><strong>Rule 147</strong>: Intrastate offering exemption for securities offered and sold only to residents of a single state.</li>
+                </ul>
+                
+                <h4>Registration Process</h4>
+                <ul>
+                    <li><strong>Registration Statement</strong>: Filed with the SEC, contains detailed information about the issuer and the securities being offered.</li>
+                    <li><strong>Prospectus</strong>: Part of the registration statement that is distributed to potential investors.</li>
+                    <li><strong>Waiting Period</strong>: Time between filing the registration statement and its effective date.</li>
+                    <li><strong>Due Diligence</strong>: Investigation conducted by underwriters to verify the accuracy of information in the registration statement.</li>
+                </ul>
+                
+                <div class="key-concept">
+                    <h4>Key Concept: Exempt Offerings</h4>
+                    <p>Not all securities offerings require registration with the SEC. Common exemptions include:</p>
+                    <ul>
+                        <li><strong>Regulation D</strong>: Private placements to accredited investors or a limited number of non-accredited investors.</li>
+                        <li><strong>Regulation A</strong>: "Mini-IPO" exemption allowing companies to raise up to $75 million with simplified disclosure requirements.</li>
+                        <li><strong>Regulation Crowdfunding</strong>: Allows companies to raise up to $5 million through online crowdfunding platforms.</li>
+                        <li><strong>Rule 144A</strong>: Allows for resale of restricted securities to qualified institutional buyers.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-area-2" class="study-guide-section">
+            <h2>4. Understanding Products and Their Risks (44%)</h2>
+            
+            <div id="equity-securities" class="study-guide-section">
+                <h3>4.1 Equity Securities</h3>
+                
+                <h4>Common Stock</h4>
+                <ul>
+                    <li>Represents ownership in a corporation with voting rights</li>
+                    <li>Residual claim on assets after creditors and preferred stockholders</li>
+                    <li>May receive dividends, though not guaranteed</li>
+                    <li>Unlimited upside potential but greater risk than debt securities</li>
+                </ul>
+                
+                <h4>Preferred Stock</h4>
+                <ul>
+                    <li>Hybrid security with characteristics of both stocks and bonds</li>
+                    <li>Fixed or stated dividend payments that must be paid before common stock dividends</li>
+                    <li>Priority over common stock in liquidation</li>
+                    <li>Typically no voting rights</li>
+                    <li>May be cumulative, non-cumulative, convertible, or callable</li>
+                </ul>
+                
+                <h4>Rights and Warrants</h4>
+                <ul>
+                    <li><strong>Rights</strong>: Short-term instruments allowing existing shareholders to purchase additional shares at a discount before a new issue</li>
+                    <li><strong>Warrants</strong>: Long-term options to buy stock at a specified price, often issued with bonds as "sweeteners"</li>
+                </ul>
+                
+                <h4>American Depositary Receipts (ADRs)</h4>
+                <ul>
+                    <li>Represent ownership in shares of foreign companies</li>
+                    <li>Trade on U.S. exchanges in U.S. dollars</li>
+                    <li>Allow U.S. investors to own foreign stocks without the complications of cross-border transactions</li>
+                </ul>
+                
+                <div class="key-concept">
+                    <h4>Key Concept: Stock Valuation Methods</h4>
+                    <p>Common methods for valuing stocks include:</p>
+                    <ul>
+                        <li><strong>Price-to-Earnings (P/E) Ratio</strong>: Stock price divided by earnings per share</li>
+                        <li><strong>Dividend Discount Model</strong>: Present value of expected future dividends</li>
+                        <li><strong>Price-to-Book (P/B) Ratio</strong>: Stock price divided by book value per share</li>
+                        <li><strong>Discounted Cash Flow (DCF)</strong>: Present value of expected future cash flows</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Additional content areas would continue here with similar structure -->
+            
+        </div>
+
+        <div id="final-prep" class="study-guide-section">
+            <h2>7. Final Exam Preparation</h2>
+            
+            <h3>Two Weeks Before the Exam</h3>
+            <ul>
+                <li>Take a full-length practice test to identify weak areas</li>
+                <li>Focus review on areas where you scored lowest</li>
+                <li>Review memory aids and key concepts for all content areas</li>
+                <li>Create a one-page summary sheet for each major content area</li>
+            </ul>
+            
+            <h3>One Week Before the Exam</h3>
+            <ul>
+                <li>Take another full-length practice test</li>
+                <li>Review questions you missed, focusing on understanding why the correct answer is correct</li>
+                <li>Review formulas and calculations</li>
+                <li>Practice with additional questions in your weak areas</li>
+            </ul>
+            
+            <h3>Day Before the Exam</h3>
+            <ul>
+                <li>Light review of summary sheets and memory aids</li>
+                <li>Avoid learning new material</li>
+                <li>Prepare what you'll need for the exam (ID, confirmation number, etc.)</li>
+                <li>Get a good night's sleep</li>
+            </ul>
+            
+            <h3>Exam Day Strategies</h3>
+            <ul>
+                <li>Arrive early to the testing center</li>
+                <li>Read each question carefully, paying attention to qualifiers like "EXCEPT," "NOT," "BEST," or "MOST"</li>
+                <li>Use process of elimination for difficult questions</li>
+                <li>Manage your time - you have about 1.4 minutes per question</li>
+                <li>Flag questions you're unsure about and return to them if time permits</li>
+                <li>Answer every question - there's no penalty for wrong answers</li>
+            </ul>
+            
+            <div class="study-tip">
+                <h4>Final Exam Tip: Common Pitfalls to Avoid</h4>
+                <ul>
+                    <li><strong>Misreading Questions</strong>: Pay close attention to negative words (not, except) and superlatives (best, most).</li>
+                    <li><strong>Overthinking</strong>: Don't read too much into questions - they're testing your knowledge, not trying to trick you.</li>
+                    <li><strong>Poor Time Management</strong>: Don't spend too much time on difficult questions early in the exam.</li>
+                    <li><strong>Changing Answers</strong>: Your first instinct is often correct - only change answers if you're certain.</li>
+                    <li><strong>Test Anxiety</strong>: Practice relaxation techniques and remember that you've prepared thoroughly.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="resources" class="study-guide-section">
+            <h2>8. Additional Resources</h2>
+            
+            <h3>Official FINRA Resources</h3>
+            <ul>
+                <li><a href="https://www.finra.org/sites/default/files/SIE_Content_Outline.pdf" target="_blank">SIE Content Outline</a> - Official breakdown of exam topics</li>
+                <li><a href="https://www.finra.org/registration-exams-ce/qualification-exams/securities-industry-essentials-exam" target="_blank">FINRA SIE Exam Page</a> - Registration information and resources</li>
+            </ul>
+            
+            <h3>Course Resources</h3>
+            <ul>
+                <li><a href="memory_aids.html">Memory Aids and Acronyms</a> - Helpful techniques for remembering key concepts</li>
+                <li><a href="resources.html">Additional Learning Resources</a> - Books, videos, and online tools</li>
+                <li><a href="final_test.html">Practice Final Exam</a> - Full-length practice test with 75 questions</li>
+            </ul>
+            
+            <h3>Recommended Reading</h3>
+            <ul>
+                <li>"Securities Industry Essentials Exam For Dummies" by Steven M. Rice</li>
+                <li>"Pass the SIE: A Plain English Explanation" by Robert Walker</li>
+            </ul>
+            
+            <h3>Online Tools</h3>
+            <ul>
+                <li><a href="https://www.calculatorsoup.com/calculators/financial/bond-yield-calculator.php" target="_blank">Bond Yield Calculator</a> - Practice bond calculations</li>
+                <li><a href="https://www.optionsprofitcalculator.com/" target="_blank">Options Profit Calculator</a> - Visualize options strategies</li>
+            </ul>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

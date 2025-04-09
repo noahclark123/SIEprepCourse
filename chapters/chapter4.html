@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading and Customer Accounts | SIE Exam Course</title>
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .chapter-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .chapter-header p {
+            color: var(--secondary-color);
+        }
+        
+        .chapter-section {
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-section h2 {
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .chapter-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .chapter-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section ul,
+        .chapter-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chapter-section ul li,
+        .chapter-section ol li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .key-concept {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .key-concept h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .example {
+            background-color: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .example h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .formula {
+            background-color: #e8f4f8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table th {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        .summary {
+            background-color: #e8f4f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .summary h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .practice-questions {
+            margin: 2rem 0;
+        }
+        
+        .question {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .question h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .options {
+            margin-top: 1rem;
+        }
+        
+        .options label {
+            display: block;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .options label:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .options input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        .answer-explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e8f4f8;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+        
+        .answer-explanation.show {
+            display: block;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e67e22;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#modules">Course Modules</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="memory_aids.html">Memory Aids</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="study_guide.html">Study Guide</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="chapter-container">
+        <div class="chapter-header">
+            <h1>Chapter 4: Trading, Customer Accounts and Prohibited Activities</h1>
+            <p>Understanding trading procedures, account types, and regulatory compliance</p>
+        </div>
+
+        <div class="chapter-section">
+            <h2>4.1 Trading and Settlement Procedures</h2>
+            
+            <p>Trading and settlement procedures are fundamental to the securities industry, ensuring orderly markets and timely completion of transactions. Understanding these processes is essential for the SIE exam.</p>
+            
+            <h3>Order Types</h3>
+            <p>Various order types allow investors to specify how they want their trades executed:</p>
+            
+            <p><strong>Market Orders</strong>:</p>
+            <ul>
+                <li>Instructions to buy or sell a security at the best available current price</li>
+                <li>Prioritize speed and certainty of execution over price</li>
+                <li>Do not guarantee a specific execution price</li>
+                <li>Typically executed immediately during market hours</li>
+            </ul>
+            
+            <p><strong>Limit Orders</strong>:</p>
+            <ul>
+                <li>Instructions to buy or sell a security at a specified price or better</li>
+                <li>Buy limit orders are executed at the limit price or lower</li>
+                <li>Sell limit orders are executed at the limit price or higher</li>
+                <li>May not be executed if the market doesn't reach the limit price</li>
+                <li>Provide price protection but not execution guarantee</li>
+            </ul>
+            
+            <p><strong>Stop Orders</strong>:</p>
+            <ul>
+                <li>Become market orders when a specified price (the stop price) is reached</li>
+                <li>Buy stop orders are placed above the current market price</li>
+                <li>Sell stop orders are placed below the current market price</li>
+                <li>Often used to limit losses or protect profits</li>
+                <li>Do not guarantee execution at the stop price</li>
+            </ul>
+            
+            <p><strong>Stop-Limit Orders</strong>:</p>
+            <ul>
+                <li>Combine features of stop orders and limit orders</li>
+                <li>Become limit orders when the stop price is reached</li>
+                <li>Require setting both a stop price and a limit price</li>
+                <li>Provide more price control than stop orders but may not execute</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Time-in-Force Instructions</h4>
+                <p>Time-in-force instructions specify how long an order remains active:</p>
+                <ul>
+                    <li><strong>Day Order</strong>: Valid only for the current trading day</li>
+                    <li><strong>Good-Till-Canceled (GTC)</strong>: Remains active until executed or canceled</li>
+                    <li><strong>Immediate-or-Cancel (IOC)</strong>: Must be executed immediately, at least partially, or canceled</li>
+                    <li><strong>Fill-or-Kill (FOK)</strong>: Must be executed in its entirety immediately or canceled</li>
+                    <li><strong>Market-on-Open (MOO)</strong>: Executed at the opening of the market</li>
+                    <li><strong>Market-on-Close (MOC)</strong>: Executed at the closing of the market</li>
+                </ul>
+            </div>
+            
+            <h3>Trade Settlement</h3>
+            <p>Settlement is the process of transferring securities to the buyer and funds to the seller after a trade is executed.</p>
+            
+            <p><strong>Settlement Cycle</strong>:</p>
+            <ul>
+                <li>Most securities (stocks, corporate bonds, municipal bonds) settle on T+2 (trade date plus two business days)</li>
+                <li>U.S. government securities settle on T+1</li>
+                <li>Options settle on T+1</li>
+                <li>Mutual fund transactions typically settle on T+1</li>
+            </ul>
+            
+            <p><strong>Settlement Process</strong>:</p>
+            <ul>
+                <li>Clearing: Confirmation of trade details between parties</li>
+                <li>Netting: Offsetting buy and sell obligations to reduce settlement volume</li>
+                <li>Delivery: Transfer of securities from seller to buyer</li>
+                <li>Payment: Transfer of funds from buyer to seller</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Example: T+2 Settlement</h4>
+                <p>If an investor purchases shares on Monday, the trade will settle on Wednesday (assuming no holidays). The investor must have sufficient funds in the account by Wednesday, and the seller must deliver the shares by Wednesday. If either party fails to meet their obligation, a settlement failure occurs.</p>
+            </div>
+            
+            <h3>Corporate Actions</h3>
+            <p>Corporate actions are events initiated by companies that affect their securities and potentially impact investors.</p>
+            
+            <p><strong>Dividends</strong>:</p>
+            <ul>
+                <li>Cash dividends: Payments of company profits to shareholders</li>
+                <li>Stock dividends: Distribution of additional shares to existing shareholders</li>
+                <li>Important dates:
+                    <ul>
+                        <li>Declaration date: When the board announces the dividend</li>
+                        <li>Ex-dividend date: First day stock trades without the dividend</li>
+                        <li>Record date: Date when the company determines shareholders of record</li>
+                        <li>Payment date: When dividends are distributed</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p><strong>Stock Splits</strong>:</p>
+            <ul>
+                <li>Increase the number of shares outstanding while proportionally decreasing share price</li>
+                <li>Do not change the company's market capitalization</li>
+                <li>Example: In a 2-for-1 split, each share becomes two shares at half the price</li>
+                <li>Reverse splits reduce the number of shares and increase the price</li>
+            </ul>
+            
+            <p><strong>Mergers and Acquisitions</strong>:</p>
+            <ul>
+                <li>Merger: Combination of two companies into one</li>
+                <li>Acquisition: One company purchases another</li>
+                <li>May result in cash payments, stock exchanges, or both for shareholders</li>
+                <li>Require shareholder approval in many cases</li>
+            </ul>
+            
+            <p><strong>Tender Offers</strong>:</p>
+            <ul>
+                <li>Public offers to purchase shares at a specified price</li>
+                <li>Often used in takeover attempts</li>
+                <li>Usually at a premium to current market price</li>
+                <li>Subject to specific SEC regulations</li>
+            </ul>
+        </div>
+
+        <div class="chapter-section">
+            <h2>4.2 Customer Accounts and Compliance</h2>
+            
+            <p>Understanding customer account types and compliance requirements is essential for securities professionals and for success on the SIE exam.</p>
+            
+            <h3>Account Types</h3>
+            
+            <p><strong>Cash Accounts</strong>:</p>
+            <ul>
+                <li>Require full payment for securities purchases by settlement date</li>
+                <li>No extension of credit by the broker-dealer</li>
+                <li>Subject to Regulation T of the Federal Reserve Board</li>
+                <li>Free riding (selling securities before paying for them) is prohibited</li>
+            </ul>
+            
+            <p><strong>Margin Accounts</strong>:</p>
+            <ul>
+                <li>Allow customers to borrow from the broker-dealer to purchase securities</li>
+                <li>Require a minimum equity of $2,000 to open</li>
+                <li>Initial margin requirement is 50% (Regulation T)</li>
+                <li>Maintenance margin requirement is typically 25% (NYSE/FINRA)</li>
+                <li>Subject to margin calls if equity falls below maintenance requirements</li>
+                <li>Enable short selling</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Margin Calculations</h4>
+                <p>Important margin calculations include:</p>
+                <ul>
+                    <li><strong>Equity</strong> = Market Value of Securities - Debit Balance</li>
+                    <li><strong>Equity Percentage</strong> = Equity ÷ Market Value × 100%</li>
+                    <li><strong>Buying Power</strong> = Equity ÷ Initial Margin Requirement</li>
+                    <li><strong>SMA (Special Memorandum Account)</strong> = Excess equity that can be withdrawn or used for trading</li>
+                </ul>
+            </div>
+            
+            <p><strong>Retirement Accounts</strong>:</p>
+            <ul>
+                <li><strong>Traditional IRA</strong>: Tax-deductible contributions with tax-deferred growth</li>
+                <li><strong>Roth IRA</strong>: After-tax contributions with tax-free growth and withdrawals</li>
+                <li><strong>SEP IRA</strong>: For self-employed individuals and small business owners</li>
+                <li><strong>SIMPLE IRA</strong>: For small businesses with 100 or fewer employees</li>
+                <li><strong>401(k)</strong>: Employer-sponsored retirement plan</li>
+                <li>Subject to contribution limits and withdrawal restrictions</li>
+            </ul>
+            
+            <p><strong>Other Account Types</strong>:</p>
+            <ul>
+                <li><strong>Joint Accounts</strong>: Owned by two or more individuals
+                    <ul>
+                        <li>Joint Tenants with Rights of Survivorship (JTWROS): Surviving owners automatically inherit deceased owner's share</li>
+                        <li>Tenants in Common (TIC): Each owner's share passes to their heirs</li>
+                    </ul>
+                </li>
+                <li><strong>Trust Accounts</strong>: Assets held by trustees for beneficiaries</li>
+                <li><strong>Custodial Accounts</strong>: For minors (UGMA/UTMA)</li>
+                <li><strong>Corporate/Partnership Accounts</strong>: For business entities</li>
+                <li><strong>Estate Accounts</strong>: For deceased individuals' assets</li>
+            </ul>
+            
+            <h3>Account Opening and Maintenance</h3>
+            
+            <p><strong>New Account Documentation</strong>:</p>
+            <ul>
+                <li>Customer identification (CIP) requirements under the USA PATRIOT Act</li>
+                <li>New account form with customer information and investment objectives</li>
+                <li>Customer agreement outlining terms and conditions</li>
+                <li>Form W-9 for U.S. persons or W-8 for non-U.S. persons</li>
+                <li>Margin agreement for margin accounts</li>
+                <li>Options agreement for options trading</li>
+            </ul>
+            
+            <p><strong>Know Your Customer (KYC)</strong>:</p>
+            <ul>
+                <li>Required under FINRA Rule 2090</li>
+                <li>Firms must use reasonable diligence to know essential facts about customers</li>
+                <li>Includes understanding customer's investment profile, financial situation, and needs</li>
+                <li>Ongoing obligation to keep customer information current</li>
+            </ul>
+            
+            <p><strong>Anti-Money Laundering (AML)</strong>:</p>
+            <ul>
+                <li>Required under the Bank Secrecy Act and USA PATRIOT Act</li>
+                <li>Firms must establish AML compliance programs</li>
+                <li>Customer identification procedures</li>
+                <li>Monitoring for suspicious activities</li>
+                <li>Filing Suspicious Activity Reports (SARs) when appropriate</li>
+                <li>Currency Transaction Reports (CTRs) for cash transactions over $10,000</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Example: Red Flags for Suspicious Activity</h4>
+                <p>Securities professionals should be alert to potential red flags including:</p>
+                <ul>
+                    <li>Reluctance to provide identifying information</li>
+                    <li>Unusual wire transfer activity, especially involving high-risk jurisdictions</li>
+                    <li>Transactions that lack business purpose or appear unnecessarily complex</li>
+                    <li>Account activity inconsistent with the customer's profile</li>
+                    <li>Attempts to avoid reporting or recordkeeping requirements</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2>4.3 Customer Communications and Suitability</h2>
+            
+            <p>Securities professionals must communicate effectively with customers and ensure that investment recommendations are suitable for their specific circumstances.</p>
+            
+            <h3>Communications with the Public</h3>
+            
+            <p><strong>Categories of Communications</strong>:</p>
+            <ul>
+                <li><strong>Retail Communications</strong>: Distributed to more than 25 retail investors</li>
+                <li><strong>Correspondence</strong>: Written communication distributed to 25 or fewer retail investors</li>
+                <li><strong>Institutional Communications</strong>: Distributed exclusively to institutional investors</li>
+            </ul>
+            
+            <p><strong>Content Standards</strong>:</p>
+            <ul>
+                <li>Must be fair, balanced, and not misleading</li>
+                <li>Cannot make exaggerated, unwarranted, or misleading claims</li>
+                <li>Must provide a sound basis for evaluating facts</li>
+                <li>Cannot predict or project performance or make exaggerated claims</li>
+                <li>Must disclose material information</li>
+            </ul>
+            
+            <p><strong>Approval and Review Requirements</strong>:</p>
+            <ul>
+                <li>Retail communications must be approved by a registered principal before use</li>
+                <li>Firms must maintain records of communications</li>
+                <li>Certain communications may require FINRA filing</li>
+            </ul>
+            
+            <h3>Suitability and Best Interest</h3>
+            
+            <p><strong>Suitability Rule (FINRA Rule 2111)</strong>:</p>
+            <ul>
+                <li>Requires that recommendations be suitable for the customer based on:
+                    <ul>
+                        <li>Customer's investment profile (age, financial situation, tax status, investment objectives, etc.)</li>
+                        <li>Reasonable basis suitability (suitable for at least some investors)</li>
+                        <li>Customer-specific suitability (suitable for the specific customer)</li>
+                        <li>Quantitative suitability (appropriate number of transactions)</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p><strong>Regulation Best Interest (Reg BI)</strong>:</p>
+            <ul>
+                <li>Established by the SEC in 2019</li>
+                <li>Requires broker-dealers to act in the best interest of retail customers when making recommendations</li>
+                <li>Four core obligations:
+                    <ul>
+                        <li>Disclosure Obligation: Provide disclosures about the relationship and recommendations</li>
+                        <li>Care Obligation: Exercise reasonable care, skill, and diligence</li>
+                        <li>Conflict of Interest Obligation: Identify and address conflicts of interest</li>
+                        <li>Compliance Obligation: Establish policies and procedures to comply with Reg BI</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Suitability vs. Best Interest</h4>
+                <p>While suitability requires recommendations to be suitable for customers, Regulation Best Interest goes further by requiring broker-dealers to act in the customer's best interest and not place their own interests ahead of the customer's interests. This includes considering costs, reasonably available alternatives, and potential conflicts of interest.</p>
+            </div>
+            
+            <h3>Customer Disclosures</h3>
+            
+            <p><strong>Required Disclosures</strong>:</p>
+            <ul>
+                <li>Form CRS (Customer Relationship Summary)</li>
+                <li>Account statements and confirmations</li>
+                <li>Prospectuses for securities offerings</li>
+                <li>Material information about investments</li>
+                <li>Fees and compensation</li>
+                <li>Conflicts of interest</li>
+                <li>Risks associated with investments</li>
+            </ul>
+            
+            <p><strong>Timing of Disclosures</strong>:</p>
+            <ul>
+                <li>Prior to or at the time of recommendation (Form CRS)</li>
+                <li>At account opening</li>
+                <li>Before transactions (prospectuses)</li>
+                <li>Periodic updates (account statements)</li>
+                <li>When material changes occur</li>
+            </ul>
+        </div>
+
+        <div class="chapter-section">
+            <h2>4.4 Prohibited Activities</h2>
+            
+            <p>Securities professionals must avoid various prohibited activities to maintain market integrity and protect investors. Understanding these prohibitions is crucial for the SIE exam.</p>
+            
+            <h3>Market Manipulation</h3>
+            
+            <p><strong>Types of Market Manipulation</strong>:</p>
+            <ul>
+                <li><strong>Painting the Tape</strong>: Creating artificial trading activity to give the impression of interest in a security</li>
+                <li><strong>Wash Sales</strong>: Transactions with no change in beneficial ownership designed to create artificial activity</li>
+                <li><strong>Matched Orders</strong>: Coordinated buy and sell orders to create artificial activity</li>
+                <li><strong>Marking the Close</strong>: Buying or selling at the close of trading to affect the closing price</li>
+                <li><strong>Spoofing/Layering</strong>: Placing and canceling orders to create false impressions of market activity</li>
+                <li><strong>Pump and Dump</strong>: Artificially inflating a stock's price through false statements, then selling shares at the higher price</li>
+            </ul>
+            
+            <h3>Insider Trading</h3>
+            
+            <p><strong>Definition and Elements</strong>:</p>
+            <ul>
+                <li>Trading securities based on material, non-public information</li>
+                <li>Breach of fiduciary duty or misappropriation of information</li>
+                <li>Applies to corporate insiders, temporary insiders, and tippees</li>
+                <li>Prohibited under Section 10(b) of the Securities Exchange Act and SEC Rule 10b-5</li>
+            </ul>
+            
+            <p><strong>Material Information</strong>:</p>
+            <ul>
+                <li>Information a reasonable investor would consider important in making an investment decision</li>
+                <li>Examples include earnings announcements, mergers, acquisitions, new products, and management changes</li>
+            </ul>
+            
+            <p><strong>Non-Public Information</strong>:</p>
+            <ul>
+                <li>Information not yet disseminated to the general public</li>
+                <li>Becomes public when disclosed through official channels and the market has had time to absorb it</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Example: Insider Trading Case</h4>
+                <p>A corporate executive learns about an upcoming merger that will significantly increase the company's stock price. Before the information is publicly announced, the executive purchases additional shares of the company's stock. After the merger announcement, the stock price rises, and the executive sells the shares for a profit. This is insider trading because the executive traded based on material, non-public information in breach of fiduciary duty.</p>
+            </div>
+            
+            <h3>Fraud and Misrepresentation</h3>
+            
+            <p><strong>Securities Fraud</strong>:</p>
+            <ul>
+                <li>Making false statements or omitting material facts in connection with the purchase or sale of securities</li>
+                <li>Prohibited under Section 10(b) of the Securities Exchange Act and SEC Rule 10b-5</li>
+                <li>Can involve oral statements, written materials, or electronic communications</li>
+                <li>Intent to deceive, manipulate, or defraud is required</li>
+            </ul>
+            
+            <p><strong>Common Types of Fraud</strong>:</p>
+            <ul>
+                <li>Misrepresenting investment features or risks</li>
+                <li>Ponzi schemes (using new investor funds to pay existing investors)</li>
+                <li>Pyramid schemes</li>
+                <li>Churning (excessive trading to generate commissions)</li>
+                <li>Unauthorized trading</li>
+                <li>Selling away (selling securities not offered by the firm)</li>
+                <li>Front-running (trading ahead of customer orders)</li>
+            </ul>
+            
+            <h3>Other Prohibited Activities</h3>
+            
+            <p><strong>Borrowing from or Lending to Customers</strong>:</p>
+            <ul>
+                <li>Generally prohibited unless:
+                    <ul>
+                        <li>The customer is a financial institution in the business of lending</li>
+                        <li>The customer is a family member</li>
+                        <li>The firm has written procedures allowing such arrangements</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p><strong>Sharing in Customer Accounts</strong>:</p>
+            <ul>
+                <li>Sharing in profits or losses in a customer's account is generally prohibited</li>
+                <li>Exceptions include immediate family members and certain joint accounts</li>
+            </ul>
+            
+            <p><strong>Guaranteeing Against Loss</strong>:</p>
+            <ul>
+                <li>Securities professionals cannot guarantee customers against losses</li>
+                <li>Violates FINRA rules and may create unrealistic expectations</li>
+            </ul>
+            
+            <p><strong>Outside Business Activities</strong>:</p>
+            <ul>
+                <li>Registered representatives must provide prior written notice to their firms</li>
+                <li>Firms may restrict or prohibit certain activities</li>
+                <li>Failure to disclose may result in regulatory action</li>
+            </ul>
+            
+            <p><strong>Private Securities Transactions</strong>:</p>
+            <ul>
+                <li>Also known as "selling away"</li>
+                <li>Requires prior written notice to the firm</li>
+                <li>Firm must approve or disapprove the transaction</li>
+                <li>If approved, the firm must supervise the transaction</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Red Flags for Fraud</h4>
+                <p>Securities professionals should be alert to potential red flags of fraud, including:</p>
+                <ul>
+                    <li>Promises of guaranteed returns or "no risk" investments</li>
+                    <li>Pressure to act quickly or limited-time offers</li>
+                    <li>Unregistered securities or unlicensed sellers</li>
+                    <li>Overly consistent returns regardless of market conditions</li>
+                    <li>Complex strategies that cannot be explained clearly</li>
+                    <li>Difficulty receiving payments or account information</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h3>Chapter Summary</h3>
+            <p>This chapter covered the essential concepts related to trading, customer accounts, and prohibited activities that are tested on the SIE exam:</p>
+            <ul>
+                <li><strong>Trading and Settlement Procedures</strong>: Various order types (market, limit, stop, stop-limit), time-in-force instructions, settlement cycles (T+2 for most securities), and corporate actions (dividends, stock splits, mergers).</li>
+                <li><strong>Customer Accounts and Compliance</strong>: Different account types (cash, margin, retirement, joint), account opening requirements, Know Your Customer (KYC) obligations, and Anti-Money Laundering (AML) requirements.</li>
+                <li><strong>Customer Communications and Suitability</strong>: Standards for communications with the public, suitability requirements under FINRA Rule 2111, Regulation Best Interest (Reg BI), and required customer disclosures.</li>
+                <li><strong>Prohibited Activities</strong>: Market manipulation, insider trading, securities fraud, and other prohibited activities such as borrowing from customers, sharing in customer accounts, guaranteeing against loss, and undisclosed outside business activities.</li>
+            </ul>
+            <p>Understanding these concepts is crucial for maintaining market integrity, protecting investors, and complying with securities regulations. Securities professionals must adhere to these rules and regulations to avoid regulatory action and maintain trust in the financial markets.</p>
+        </div>
+
+        <div class="practice-questions">
+            <h2>Practice Questions</h2>
+            
+            <div class="question" id="q1">
+                <h4>1. Which of the following order types guarantees a specific execution price?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> A. Market order</label>
+                    <label><input type="radio" name="q1" value="b"> B. Limit order</label>
+                    <label><input type="radio" name="q1" value="c"> C. Stop order</label>
+                    <label><input type="radio" name="q1" value="d"> D. Market-on-close order</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q1')">Show Answer</button>
+                <div class="answer-explanation" id="a1">
+                    <p><strong>Correct Answer: B. Limit order</strong></p>
+                    <p>A limit order guarantees that the execution price will be at the specified limit price or better (lower for buy orders, higher for sell orders). Market orders execute at the best available current price but do not guarantee a specific price. Stop orders become market orders when the stop price is reached and do not guarantee execution at the stop price. Market-on-close orders execute at the closing price, which is not known in advance.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q2">
+                <h4>2. What is the standard settlement cycle for most equity securities in the U.S.?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> A. T+1</label>
+                    <label><input type="radio" name="q2" value="b"> B. T+2</label>
+                    <label><input type="radio" name="q2" value="c"> C. T+3</label>
+                    <label><input type="radio" name="q2" value="d"> D. T+5</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q2')">Show Answer</button>
+                <div class="answer-explanation" id="a2">
+                    <p><strong>Correct Answer: B. T+2</strong></p>
+                    <p>Most equity securities, corporate bonds, and municipal bonds settle on T+2 (trade date plus two business days). U.S. government securities and options settle on T+1. The settlement cycle for equities was shortened from T+3 to T+2 in 2017 to reduce risk and align with international standards.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q3">
+                <h4>3. What is the minimum equity requirement to open a margin account?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> A. $1,000</label>
+                    <label><input type="radio" name="q3" value="b"> B. $2,000</label>
+                    <label><input type="radio" name="q3" value="c"> C. $5,000</label>
+                    <label><input type="radio" name="q3" value="d"> D. $10,000</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q3')">Show Answer</button>
+                <div class="answer-explanation" id="a3">
+                    <p><strong>Correct Answer: B. $2,000</strong></p>
+                    <p>Regulation T of the Federal Reserve Board requires a minimum equity of $2,000 to open a margin account. This is the minimum amount of equity (cash or securities) that must be deposited before a customer can trade on margin. Individual broker-dealers may set higher requirements.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q4">
+                <h4>4. Under Regulation Best Interest (Reg BI), broker-dealers must:</h4>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> A. Act as fiduciaries at all times</label>
+                    <label><input type="radio" name="q4" value="b"> B. Recommend only the lowest-cost products</label>
+                    <label><input type="radio" name="q4" value="c"> C. Act in the best interest of retail customers when making recommendations</label>
+                    <label><input type="radio" name="q4" value="d"> D. Eliminate all conflicts of interest</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q4')">Show Answer</button>
+                <div class="answer-explanation" id="a4">
+                    <p><strong>Correct Answer: C. Act in the best interest of retail customers when making recommendations</strong></p>
+                    <p>Regulation Best Interest requires broker-dealers to act in the best interest of retail customers when making recommendations, without placing their own interests ahead of the customer's interests. It does not impose a full fiduciary duty, does not require recommending only the lowest-cost products, and requires identifying and addressing (not eliminating) conflicts of interest.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q5">
+                <h4>5. Which of the following activities would be considered insider trading?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> A. Trading based on information from a company's public earnings announcement</label>
+                    <label><input type="radio" name="q5" value="b"> B. Trading based on a rumor heard from a stranger at a coffee shop</label>
+                    <label><input type="radio" name="q5" value="c"> A. Trading based on technical analysis of a stock's price movements</label>
+                    <label><input type="radio" name="q5" value="d"> D. Trading based on confidential merger information received from a company executive</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q5')">Show Answer</button>
+                <div class="answer-explanation" id="a5">
+                    <p><strong>Correct Answer: D. Trading based on confidential merger information received from a company executive</strong></p>
+                    <p>Insider trading involves trading securities based on material, non-public information in breach of a fiduciary duty or through misappropriation. Trading based on confidential merger information received from a company executive meets these criteria. Trading based on public information, rumors from strangers, or technical analysis does not constitute insider trading because the information is either public, not obtained through a breach of duty, or not material non-public information.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="chapter3.html" class="btn">Previous Chapter</a>
+            <a href="chapter5.html" class="btn">Next Chapter</a>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Show answer function
+        function showAnswer(questionId) {
+            document.getElementById('a' + questionId.substring(1)).classList.toggle('show');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

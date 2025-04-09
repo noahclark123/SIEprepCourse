@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional Resources | SIE Exam Course</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .resources-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .resources-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .resources-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .resources-header p {
+            color: var(--secondary-color);
+        }
+        
+        .resource-section {
+            margin-bottom: 3rem;
+        }
+        
+        .resource-section h2 {
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-card {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .resource-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card p {
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card .source {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card .key-points {
+            margin-top: 1rem;
+        }
+        
+        .resource-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .resource-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-card .link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .resource-card .link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#modules">Course Modules</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../glossary.html">Glossary</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="resources-container">
+        <div class="resources-header">
+            <h1>Additional Resources</h1>
+            <p>Valuable supplementary materials to enhance your SIE exam preparation</p>
+        </div>
+
+        <div class="resource-section">
+            <h2>Official FINRA Resources</h2>
+            
+            <div class="resource-card">
+                <h3>FINRA SIE Exam Content Outline</h3>
+                <p class="source">Source: Financial Industry Regulatory Authority (FINRA)</p>
+                <p>The official content outline provides a comprehensive breakdown of the SIE exam structure, including the weight of each section and the specific topics covered. This is the definitive guide to what you need to know for the exam.</p>
+                <div class="key-points">
+                    <p><strong>Key information includes:</strong></p>
+                    <ul>
+                        <li>Detailed breakdown of the four major content areas</li>
+                        <li>Specific rules and regulations tested</li>
+                        <li>Sample questions with explanations</li>
+                        <li>Test-taking procedures and guidelines</li>
+                    </ul>
+                </div>
+                <a href="https://www.finra.org/sites/default/files/SIE_Content_Outline.pdf" target="_blank" class="link">Access the SIE Content Outline (PDF)</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>FINRA Practice Test</h3>
+                <p class="source">Source: Financial Industry Regulatory Authority (FINRA)</p>
+                <p>FINRA offers an official practice test that closely resembles the actual SIE exam. This is one of the most valuable resources for exam preparation as it comes directly from the organization that administers the exam.</p>
+                <div class="key-points">
+                    <p><strong>Features of the practice test:</strong></p>
+                    <ul>
+                        <li>75 questions in the same format as the actual exam</li>
+                        <li>Covers all four content areas in the correct proportions</li>
+                        <li>Includes detailed explanations for each answer</li>
+                        <li>Provides a realistic exam experience</li>
+                    </ul>
+                </div>
+                <a href="https://www.finra.org/registration-exams-ce/qualification-exams/securities-industry-essentials-exam" target="_blank" class="link">Learn More About FINRA's Practice Resources</a>
+            </div>
+        </div>
+
+        <div class="resource-section">
+            <h2>Key Concepts from Educational Videos</h2>
+            
+            <div class="resource-card">
+                <h3>Understanding Securities Regulations</h3>
+                <p class="source">Based on insights from Capital Advantage Tutoring</p>
+                <p>A clear explanation of the major securities regulations that form the foundation of the securities industry. Understanding these regulations is crucial for success on the SIE exam.</p>
+                <div class="key-points">
+                    <p><strong>Important regulations to understand:</strong></p>
+                    <ul>
+                        <li><strong>Securities Act of 1933</strong> - Often called the "Truth in Securities" law, this act requires that investors receive financial and other significant information concerning securities being offered for public sale, and prohibits deceit, misrepresentations, and other fraud in the sale of securities.</li>
+                        <li><strong>Securities Exchange Act of 1934</strong> - Created the SEC and gives it broad authority over all aspects of the securities industry, including the power to register, regulate, and oversee brokerage firms, transfer agents, and clearing agencies as well as the nation's securities self-regulatory organizations (SROs).</li>
+                        <li><strong>Investment Company Act of 1940</strong> - Regulates the organization of companies that engage primarily in investing, reinvesting, and trading in securities, and whose own securities are offered to the investing public.</li>
+                        <li><strong>Investment Advisers Act of 1940</strong> - Regulates investment advisers and requires firms or sole practitioners compensated for advising others about securities investments to register with the SEC and conform to regulations designed to protect investors.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Equity Securities Explained</h3>
+                <p class="source">Based on insights from Capital Advantage Tutoring</p>
+                <p>A comprehensive overview of equity securities, their characteristics, and how they function in the market. This knowledge is essential for the Products and Their Risks section of the SIE exam.</p>
+                <div class="key-points">
+                    <p><strong>Key concepts about equity securities:</strong></p>
+                    <ul>
+                        <li><strong>Common Stock</strong> - Represents ownership in a corporation with voting rights. Common stockholders have a residual claim on assets and may receive dividends, though dividends are not guaranteed.</li>
+                        <li><strong>Preferred Stock</strong> - A hybrid security with characteristics of both stocks and bonds. Preferred stockholders receive fixed dividends before common stockholders but typically don't have voting rights.</li>
+                        <li><strong>Rights and Warrants</strong> - Rights allow existing shareholders to purchase additional shares at a discount before a new issue. Warrants are long-term options to buy stock at a specified price.</li>
+                        <li><strong>American Depositary Receipts (ADRs)</strong> - Represent shares in foreign companies and trade on U.S. exchanges, allowing investors to own foreign stocks without the complications of cross-border transactions.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Bond Fundamentals</h3>
+                <p class="source">Based on insights from Capital Advantage Tutoring</p>
+                <p>An in-depth look at debt securities, their features, and how they differ from equities. Understanding bonds is critical for the Products and Their Risks section of the SIE exam.</p>
+                <div class="key-points">
+                    <p><strong>Essential bond concepts:</strong></p>
+                    <ul>
+                        <li><strong>Bond Characteristics</strong> - Par value, coupon rate, maturity date, and yield are fundamental characteristics of bonds that determine their value and risk profile.</li>
+                        <li><strong>Types of Bonds</strong> - Treasury securities (bills, notes, bonds), municipal bonds (general obligation, revenue), corporate bonds (secured, unsecured), and agency bonds each have unique features and risk profiles.</li>
+                        <li><strong>Bond Pricing</strong> - Bond prices move inversely to interest rates. When interest rates rise, bond prices fall, and vice versa.</li>
+                        <li><strong>Bond Risks</strong> - Interest rate risk, credit risk, inflation risk, liquidity risk, and call risk are the primary risks associated with bond investments.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Test-Taking Strategies for the SIE Exam</h3>
+                <p class="source">Based on insights from Series 7 Guru</p>
+                <p>Practical advice for approaching the SIE exam questions and managing your time effectively during the test. These strategies can help you maximize your score.</p>
+                <div class="key-points">
+                    <p><strong>Effective test-taking strategies:</strong></p>
+                    <ul>
+                        <li><strong>Read Questions Carefully</strong> - Pay close attention to qualifiers like "EXCEPT," "NOT," "BEST," or "MOST" that can change the meaning of a question.</li>
+                        <li><strong>Process of Elimination</strong> - If unsure about an answer, eliminate obviously incorrect options to improve your odds of selecting the correct answer.</li>
+                        <li><strong>Time Management</strong> - With 75 questions in 105 minutes, you have about 1.4 minutes per question. Monitor your pace throughout the exam.</li>
+                        <li><strong>Flag and Return</strong> - If a question is taking too long, flag it and return later rather than spending excessive time on one question.</li>
+                        <li><strong>Answer Every Question</strong> - There's no penalty for wrong answers, so make an educated guess if necessary rather than leaving questions unanswered.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="resource-section">
+            <h2>Recommended Books and Study Guides</h2>
+            
+            <div class="resource-card">
+                <h3>Securities Industry Essentials Exam For Dummies</h3>
+                <p class="source">By Steven M. Rice</p>
+                <p>A comprehensive study guide that breaks down complex concepts into easy-to-understand language. This book covers all the topics on the SIE exam and includes practice questions.</p>
+                <div class="key-points">
+                    <p><strong>What this resource offers:</strong></p>
+                    <ul>
+                        <li>Clear explanations of complex financial concepts</li>
+                        <li>Practice questions with detailed answer explanations</li>
+                        <li>Test-taking strategies specific to the SIE exam</li>
+                        <li>Review of all four content areas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Pass the SIE: A Plain English Explanation</h3>
+                <p class="source">By Robert Walker</p>
+                <p>This book focuses on explaining SIE concepts in plain language, making it ideal for those new to the securities industry. It emphasizes understanding over memorization.</p>
+                <div class="key-points">
+                    <p><strong>Highlights of this resource:</strong></p>
+                    <ul>
+                        <li>Simplified explanations of industry terminology</li>
+                        <li>Real-world examples that illustrate abstract concepts</li>
+                        <li>Focus on the "why" behind regulations and practices</li>
+                        <li>Memory aids for key concepts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="resource-section">
+            <h2>Online Tools and Calculators</h2>
+            
+            <div class="resource-card">
+                <h3>Bond Yield Calculator</h3>
+                <p class="source">Various financial websites</p>
+                <p>Online calculators that help you understand the relationship between bond prices, yields, and interest rates. These tools can help you visualize concepts that are often tested on the SIE exam.</p>
+                <div class="key-points">
+                    <p><strong>What you can calculate:</strong></p>
+                    <ul>
+                        <li>Current yield</li>
+                        <li>Yield to maturity</li>
+                        <li>Yield to call</li>
+                        <li>Bond price given yield</li>
+                    </ul>
+                </div>
+                <a href="https://www.calculatorsoup.com/calculators/financial/bond-yield-calculator.php" target="_blank" class="link">Try a Bond Yield Calculator</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Option Strategy Payoff Diagrams</h3>
+                <p class="source">Various financial websites</p>
+                <p>Interactive tools that show the potential profit and loss of different option strategies at various underlying asset prices. These visual aids can help you understand the risk profiles of options strategies.</p>
+                <div class="key-points">
+                    <p><strong>Strategies you can visualize:</strong></p>
+                    <ul>
+                        <li>Long and short calls and puts</li>
+                        <li>Covered calls</li>
+                        <li>Protective puts</li>
+                        <li>Spreads and combinations</li>
+                    </ul>
+                </div>
+                <a href="https://www.optionsprofitcalculator.com/" target="_blank" class="link">Explore Options Profit Calculator</a>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

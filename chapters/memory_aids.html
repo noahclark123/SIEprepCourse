@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Aids and Acronyms | SIE Exam Course</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .memory-aids-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .memory-aids-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .memory-aids-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .memory-aids-header p {
+            color: var(--secondary-color);
+        }
+        
+        .memory-aid-section {
+            margin-bottom: 3rem;
+        }
+        
+        .memory-aid-section h2 {
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .memory-aid-card {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .memory-aid-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .memory-aid-card p {
+            margin-bottom: 1rem;
+        }
+        
+        .memory-aid-card .acronym {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .memory-aid-card .explanation {
+            margin-top: 0.5rem;
+        }
+        
+        .memory-aid-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .memory-aid-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .memory-aid-card .example {
+            background-color: rgba(41, 128, 185, 0.1);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+        }
+        
+        .memory-aid-card .example h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#modules">Course Modules</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../glossary.html">Glossary</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="memory-aids-container">
+        <div class="memory-aids-header">
+            <h1>Memory Aids and Acronyms</h1>
+            <p>Effective techniques to help you remember key concepts for the SIE exam</p>
+        </div>
+
+        <div class="memory-aid-section">
+            <h2>Regulatory Entities and Agencies</h2>
+            
+            <div class="memory-aid-card">
+                <h3>Federal Regulators: "SEC FINRA CFTC"</h3>
+                <p class="acronym">Think: "Securities Enforcement Cops For Controlling The Capital markets"</p>
+                <div class="explanation">
+                    <p>This helps you remember the main federal regulators in the securities industry:</p>
+                    <ul>
+                        <li><strong>S</strong>EC - Securities and Exchange Commission</li>
+                        <li><strong>F</strong>INRA - Financial Industry Regulatory Authority</li>
+                        <li><strong>C</strong>FTC - Commodity Futures Trading Commission</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>SEC's Three-Part Mission: "PIM"</h3>
+                <p class="acronym">Think: "Protecting Investors Matters"</p>
+                <div class="explanation">
+                    <p>This helps you remember the SEC's three-part mission:</p>
+                    <ul>
+                        <li><strong>P</strong>rotect investors</li>
+                        <li><strong>I</strong>ntegrity of markets (maintain fair, orderly, and efficient markets)</li>
+                        <li><strong>M</strong>ake capital formation easier</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>SROs: "FINRA NYSE MSRB OCC"</h3>
+                <p class="acronym">Think: "Financial Navigators Make Obvious Choices"</p>
+                <div class="explanation">
+                    <p>This helps you remember the main Self-Regulatory Organizations:</p>
+                    <ul>
+                        <li><strong>F</strong>INRA - Financial Industry Regulatory Authority</li>
+                        <li><strong>N</strong>YSE - New York Stock Exchange</li>
+                        <li><strong>M</strong>SRB - Municipal Securities Rulemaking Board</li>
+                        <li><strong>O</strong>CC - Options Clearing Corporation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-aid-section">
+            <h2>Securities Acts and Laws</h2>
+            
+            <div class="memory-aid-card">
+                <h3>Securities Acts: "1933, 1934, 1940, 1940"</h3>
+                <p class="acronym">Think: "During the Great Depression, FDR Fixed Investments And Advisers"</p>
+                <div class="explanation">
+                    <p>This helps you remember the four major securities acts and their focus:</p>
+                    <ul>
+                        <li><strong>1933</strong> - Securities Act (regulates new securities issuance and requires registration)</li>
+                        <li><strong>1934</strong> - Securities Exchange Act (regulates secondary market trading and created the SEC)</li>
+                        <li><strong>1940</strong> - Investment Company Act (regulates mutual funds and other investment companies)</li>
+                        <li><strong>1940</strong> - Investment Advisers Act (regulates investment advisers)</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h4>Quick Tip:</h4>
+                    <p>Remember: "33 is for NEW, 34 is for WHO" - The 1933 Act focuses on new securities issuance, while the 1934 Act focuses on who can trade them (broker-dealers).</p>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>Modern Securities Laws: "SOX, JOBS, Dodd-Frank"</h3>
+                <p class="acronym">Think: "Since Obvious eXcesses, JOBS Depend on Financial reform"</p>
+                <div class="explanation">
+                    <p>This helps you remember the more recent securities laws:</p>
+                    <ul>
+                        <li><strong>S</strong>arbanes-<strong>O</strong>xley Act (SO<strong>X</strong>) of 2002 - Enhanced corporate governance after Enron</li>
+                        <li><strong>J</strong>umpstart <strong>O</strong>ur <strong>B</strong>usiness <strong>S</strong>tartups (JOBS) Act of 2012 - Eased regulations for small businesses</li>
+                        <li><strong>Dodd-Frank</strong> Act of 2010 - Comprehensive financial reform after 2008 crisis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-aid-section">
+            <h2>Market Structure</h2>
+            
+            <div class="memory-aid-card">
+                <h3>Types of Markets: "PSTF"</h3>
+                <p class="acronym">Think: "Please Send The Forms"</p>
+                <div class="explanation">
+                    <p>This helps you remember the four types of markets:</p>
+                    <ul>
+                        <li><strong>P</strong>rimary Market - Where new securities are issued</li>
+                        <li><strong>S</strong>econdary Market - Where existing securities are traded</li>
+                        <li><strong>T</strong>hird Market - OTC trading of exchange-listed securities</li>
+                        <li><strong>F</strong>ourth Market - Direct trading between institutions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>Economic Factors: "PRIME"</h3>
+                <p class="acronym">Think: "PRIME factors affect market conditions"</p>
+                <div class="explanation">
+                    <p>This helps you remember the key economic factors affecting securities markets:</p>
+                    <ul>
+                        <li><strong>P</strong>roductivity - Output per unit of input</li>
+                        <li><strong>R</strong>ates (interest) - Set by the Federal Reserve</li>
+                        <li><strong>I</strong>nflation - Rising prices of goods and services</li>
+                        <li><strong>M</strong>onetary Policy - Actions by the Federal Reserve</li>
+                        <li><strong>E</strong>mployment - Jobs and unemployment rate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-aid-section">
+            <h2>Products and Their Risks</h2>
+            
+            <div class="memory-aid-card">
+                <h3>Equity Securities: "CROPS"</h3>
+                <p class="acronym">Think: "Companies Raise Ownership through Preferred Stock"</p>
+                <div class="explanation">
+                    <p>This helps you remember the main types of equity securities:</p>
+                    <ul>
+                        <li><strong>C</strong>ommon Stock - Basic ownership shares</li>
+                        <li><strong>R</strong>ights - Short-term privilege to buy new shares</li>
+                        <li><strong>O</strong>ptions - Right to buy or sell at a specific price</li>
+                        <li><strong>P</strong>referred Stock - Hybrid security with debt-like features</li>
+                        <li><strong>S</strong>pecial securities (ADRs, warrants) - Other equity-related instruments</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>Debt Instruments: "TCMA"</h3>
+                <p class="acronym">Think: "Treasury Corporate Municipal Agency"</p>
+                <div class="explanation">
+                    <p>This helps you remember the main types of debt securities:</p>
+                    <ul>
+                        <li><strong>T</strong>reasury Securities - Issued by U.S. Department of Treasury</li>
+                        <li><strong>C</strong>orporate Bonds - Issued by corporations</li>
+                        <li><strong>M</strong>unicipal Bonds - Issued by state and local governments</li>
+                        <li><strong>A</strong>gency Securities - Issued by government-sponsored enterprises</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>Investment Risks: "CLIMB MPF"</h3>
+                <p class="acronym">Think: "Careful Investors CLIMB Mountains Properly For success"</p>
+                <div class="explanation">
+                    <p>This helps you remember the main types of investment risks:</p>
+                    <ul>
+                        <li><strong>C</strong>redit/Default Risk - Risk that issuer won't pay</li>
+                        <li><strong>L</strong>iquidity Risk - Risk of not being able to sell quickly</li>
+                        <li><strong>I</strong>nterest Rate Risk - Risk from changing interest rates</li>
+                        <li><strong>M</strong>arket Risk - Risk from overall market movements</li>
+                        <li><strong>B</strong>usiness Risk - Risk from company operations</li>
+                        <li><strong>M</strong>arket Liquidity Risk - Risk of market-wide liquidity issues</li>
+                        <li><strong>P</strong>olitical Risk - Risk from government actions</li>
+                        <li><strong>F</strong>oreign Exchange Risk - Risk from currency fluctuations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-aid-section">
+            <h2>Trading and Customer Accounts</h2>
+            
+            <div class="memory-aid-card">
+                <h3>Order Types: "MLMS"</h3>
+                <p class="acronym">Think: "Market Limit Market Stop"</p>
+                <div class="explanation">
+                    <p>This helps you remember the four basic order types:</p>
+                    <ul>
+                        <li><strong>M</strong>arket Order - Execute at current market price</li>
+                        <li><strong>L</strong>imit Order - Execute only at specified price or better</li>
+                        <li><strong>M</strong>arket-on-Close Order - Execute at closing price</li>
+                        <li><strong>S</strong>top Order - Becomes market order when price is reached</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>Account Types: "JCIT"</h3>
+                <p class="acronym">Think: "Just Check Investment Types"</p>
+                <div class="explanation">
+                    <p>This helps you remember the main types of customer accounts:</p>
+                    <ul>
+                        <li><strong>J</strong>oint Account - Owned by two or more people</li>
+                        <li><strong>C</strong>ash Account - Must pay in full for securities</li>
+                        <li><strong>I</strong>RA - Individual Retirement Account</li>
+                        <li><strong>T</strong>rust Account - Assets held by trustee for beneficiaries</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>Prohibited Activities: "FIRM"</h3>
+                <p class="acronym">Think: "Fraudulent Insider trading Ruins Markets"</p>
+                <div class="explanation">
+                    <p>This helps you remember key prohibited activities:</p>
+                    <ul>
+                        <li><strong>F</strong>raud and misrepresentation - Deceptive practices</li>
+                        <li><strong>I</strong>nsider trading - Trading on material non-public information</li>
+                        <li><strong>R</strong>egistration violations - Acting without proper registration</li>
+                        <li><strong>M</strong>arket manipulation - Artificially affecting security prices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-aid-section">
+            <h2>Regulatory Framework</h2>
+            
+            <div class="memory-aid-card">
+                <h3>FINRA Rules: "Know Your 2000-3000s"</h3>
+                <p class="acronym">Think: "2000s for Duties, 3000s for Supervision"</p>
+                <div class="explanation">
+                    <p>This helps you remember key FINRA rule series:</p>
+                    <ul>
+                        <li><strong>2000 Series</strong> - Duties and Conflicts</li>
+                        <li><strong>2100 Series</strong> - Transactions with Customers</li>
+                        <li><strong>2200 Series</strong> - Communications and Disclosures</li>
+                        <li><strong>2300 Series</strong> - Special Products</li>
+                        <li><strong>3000 Series</strong> - Supervision and Responsibilities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="memory-aid-card">
+                <h3>Registration Requirements: "FIRE"</h3>
+                <p class="acronym">Think: "Financial Industry Registration Essentials"</p>
+                <div class="explanation">
+                    <p>This helps you remember key registration requirements:</p>
+                    <ul>
+                        <li><strong>F</strong>orm U4 - Uniform Application for Securities Industry Registration</li>
+                        <li><strong>I</strong>neligibility - Statutory disqualification conditions</li>
+                        <li><strong>R</strong>egistration categories - Various representative and principal roles</li>
+                        <li><strong>E</strong>xaminations - Required qualification exams (SIE plus specialized exams)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

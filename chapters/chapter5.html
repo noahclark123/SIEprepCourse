@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Framework | SIE Exam Course</title>
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .chapter-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .chapter-header p {
+            color: var(--secondary-color);
+        }
+        
+        .chapter-section {
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-section h2 {
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .chapter-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .chapter-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section ul,
+        .chapter-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chapter-section ul li,
+        .chapter-section ol li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .key-concept {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .key-concept h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .example {
+            background-color: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .example h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .formula {
+            background-color: #e8f4f8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table th {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        .summary {
+            background-color: #e8f4f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .summary h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .practice-questions {
+            margin: 2rem 0;
+        }
+        
+        .question {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .question h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .options {
+            margin-top: 1rem;
+        }
+        
+        .options label {
+            display: block;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .options label:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .options input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        .answer-explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e8f4f8;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+        
+        .answer-explanation.show {
+            display: block;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e67e22;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#modules">Course Modules</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="memory_aids.html">Memory Aids</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="study_guide.html">Study Guide</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="chapter-container">
+        <div class="chapter-header">
+            <h1>Chapter 5: Regulatory Framework</h1>
+            <p>Understanding the regulatory structure and requirements in the securities industry</p>
+        </div>
+
+        <div class="chapter-section">
+            <h2>5.1 Self-Regulatory Organizations (SROs)</h2>
+            
+            <p>Self-Regulatory Organizations (SROs) play a crucial role in the securities industry by establishing and enforcing rules for their members and the markets they oversee.</p>
+            
+            <h3>Financial Industry Regulatory Authority (FINRA)</h3>
+            <p>FINRA is the largest independent regulator for all securities firms doing business in the United States.</p>
+            <ul>
+                <li>Created in 2007 through the consolidation of NASD and NYSE Regulation</li>
+                <li>Oversees more than 3,500 brokerage firms and over 600,000 registered representatives</li>
+                <li>Writes and enforces rules governing the activities of broker-dealers</li>
+                <li>Examines firms for compliance with rules</li>
+                <li>Administers qualification examinations, including the SIE exam</li>
+                <li>Operates the Central Registration Depository (CRD) system</li>
+                <li>Provides investor education and operates the BrokerCheck system</li>
+            </ul>
+            
+            <h3>National Securities Exchanges</h3>
+            <p>National securities exchanges are SROs that provide marketplaces for trading securities.</p>
+            <ul>
+                <li><strong>New York Stock Exchange (NYSE)</strong>: The largest equities exchange in the world</li>
+                <li><strong>Nasdaq</strong>: The first electronic stock market and a major exchange for technology companies</li>
+                <li><strong>Other exchanges</strong>: NYSE American, Cboe, IEX, etc.</li>
+            </ul>
+            <p>Key functions of exchanges include:</p>
+            <ul>
+                <li>Establishing listing requirements for securities</li>
+                <li>Providing trading facilities and systems</li>
+                <li>Creating and enforcing rules for their members</li>
+                <li>Monitoring trading activity for market manipulation and other violations</li>
+                <li>Conducting market surveillance</li>
+            </ul>
+            
+            <h3>Municipal Securities Rulemaking Board (MSRB)</h3>
+            <p>The MSRB is the SRO that regulates the municipal securities industry.</p>
+            <ul>
+                <li>Establishes rules for municipal securities dealers and municipal advisors</li>
+                <li>Operates the Electronic Municipal Market Access (EMMA) system</li>
+                <li>Provides market transparency and investor protection</li>
+                <li>Does not have examination or enforcement authority (relies on SEC, FINRA, and banking regulators)</li>
+                <li>Focuses on fair practice, disclosure, and market transparency</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: SRO Regulatory Framework</h4>
+                <p>SROs operate under the oversight of the SEC, creating a multi-layered regulatory structure:</p>
+                <ul>
+                    <li>SEC oversees SROs and has ultimate regulatory authority</li>
+                    <li>SROs establish and enforce rules for their members</li>
+                    <li>SROs conduct examinations and may take disciplinary actions</li>
+                    <li>SROs must file rule changes with the SEC for approval</li>
+                    <li>This structure allows for industry expertise in regulation while maintaining government oversight</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2>5.2 Federal Securities Laws and Regulations</h2>
+            
+            <p>Federal securities laws form the foundation of securities regulation in the United States, establishing the framework for investor protection and market integrity.</p>
+            
+            <h3>Securities Act of 1933 (the "Securities Act")</h3>
+            <p>Often called the "truth in securities" law, the Securities Act has two primary objectives:</p>
+            <ul>
+                <li>Require that investors receive financial and other significant information concerning securities being offered for public sale</li>
+                <li>Prohibit deceit, misrepresentations, and other fraud in the sale of securities</li>
+            </ul>
+            <p>Key provisions include:</p>
+            <ul>
+                <li><strong>Registration Requirements</strong>: Securities offered to the public must be registered with the SEC</li>
+                <li><strong>Prospectus Requirements</strong>: Issuers must provide a prospectus containing material information to investors</li>
+                <li><strong>Exemptions</strong>: Certain offerings are exempt from registration (private placements, small offerings, etc.)</li>
+                <li><strong>Liability Provisions</strong>: Civil liability for material misstatements or omissions</li>
+            </ul>
+            
+            <h3>Securities Exchange Act of 1934 (the "Exchange Act")</h3>
+            <p>The Exchange Act governs secondary market trading and regulates exchanges, broker-dealers, and other market participants.</p>
+            <ul>
+                <li><strong>Created the SEC</strong>: Established the Securities and Exchange Commission as the primary regulator</li>
+                <li><strong>Registration of Exchanges</strong>: Requires exchanges to register with the SEC</li>
+                <li><strong>Broker-Dealer Registration</strong>: Requires broker-dealers to register with the SEC and join an SRO</li>
+                <li><strong>Periodic Reporting</strong>: Requires public companies to file periodic reports (10-K, 10-Q, 8-K)</li>
+                <li><strong>Proxy Rules</strong>: Regulates the solicitation of shareholder votes</li>
+                <li><strong>Insider Trading</strong>: Prohibits trading on material, non-public information</li>
+                <li><strong>Market Manipulation</strong>: Prohibits manipulative practices in securities trading</li>
+            </ul>
+            
+            <h3>Investment Company Act of 1940</h3>
+            <p>The Investment Company Act regulates investment companies, including mutual funds, closed-end funds, and unit investment trusts.</p>
+            <ul>
+                <li>Requires registration of investment companies with the SEC</li>
+                <li>Regulates the structure and operations of investment companies</li>
+                <li>Requires disclosure of financial information and investment policies</li>
+                <li>Prohibits certain transactions and conflicts of interest</li>
+                <li>Regulates the composition of boards of directors</li>
+            </ul>
+            
+            <h3>Investment Advisers Act of 1940</h3>
+            <p>The Investment Advisers Act regulates investment advisers who provide advice about securities for compensation.</p>
+            <ul>
+                <li>Requires registration of investment advisers with the SEC or states</li>
+                <li>Imposes fiduciary duties on investment advisers</li>
+                <li>Requires disclosure of conflicts of interest</li>
+                <li>Prohibits certain transactions and compensation arrangements</li>
+                <li>Regulates advertising and performance reporting</li>
+            </ul>
+            
+            <h3>Other Important Federal Securities Laws</h3>
+            <ul>
+                <li><strong>Securities Investor Protection Act of 1970</strong>: Created SIPC to protect customers of failed broker-dealers</li>
+                <li><strong>Sarbanes-Oxley Act of 2002</strong>: Enhanced corporate governance and financial disclosure requirements</li>
+                <li><strong>Dodd-Frank Wall Street Reform and Consumer Protection Act of 2010</strong>: Comprehensive financial regulatory reform</li>
+                <li><strong>JOBS Act of 2012</strong>: Eased securities regulations for small businesses and created new exemptions</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Example: Registration vs. Exemption</h4>
+                <p>A large public company wants to raise $500 million through a stock offering. Since this is a public offering, the company must register the securities with the SEC by filing a registration statement (Form S-1) and providing a prospectus to investors.</p>
+                <p>In contrast, a startup seeking to raise $2 million from a small group of accredited investors might qualify for an exemption from registration under Regulation D, Rule 506(b). While exempt from registration, the company must still comply with antifraud provisions and may need to file a Form D with the SEC.</p>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2>5.3 Regulatory Authorities</h2>
+            
+            <p>Various regulatory authorities oversee different aspects of the securities industry, creating a comprehensive regulatory framework.</p>
+            
+            <h3>Securities and Exchange Commission (SEC)</h3>
+            <p>The SEC is the primary federal agency responsible for enforcing federal securities laws and regulating the securities industry.</p>
+            <ul>
+                <li>Created by the Securities Exchange Act of 1934</li>
+                <li>Mission: Protect investors, maintain fair, orderly, and efficient markets, and facilitate capital formation</li>
+                <li>Five commissioners appointed by the President and confirmed by the Senate</li>
+                <li>Key divisions include:
+                    <ul>
+                        <li>Division of Corporation Finance</li>
+                        <li>Division of Trading and Markets</li>
+                        <li>Division of Investment Management</li>
+                        <li>Division of Enforcement</li>
+                        <li>Division of Economic and Risk Analysis</li>
+                    </ul>
+                </li>
+                <li>Powers include:
+                    <ul>
+                        <li>Rulemaking authority</li>
+                        <li>Examination authority</li>
+                        <li>Enforcement authority</li>
+                        <li>Oversight of SROs</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Federal Reserve Board (FRB)</h3>
+            <p>The Federal Reserve Board plays a role in securities regulation through its authority over margin requirements and bank holding companies.</p>
+            <ul>
+                <li>Establishes margin requirements for securities purchases (Regulation T)</li>
+                <li>Regulates bank holding companies that engage in securities activities</li>
+                <li>Implements monetary policy that affects securities markets</li>
+                <li>Oversees the safety and soundness of financial institutions</li>
+            </ul>
+            
+            <h3>Other Regulatory Authorities</h3>
+            <ul>
+                <li><strong>Commodity Futures Trading Commission (CFTC)</strong>: Regulates futures and options on futures markets</li>
+                <li><strong>Department of the Treasury</strong>: Issues and regulates Treasury securities</li>
+                <li><strong>Office of the Comptroller of the Currency (OCC)</strong>: Regulates national banks that engage in securities activities</li>
+                <li><strong>Federal Deposit Insurance Corporation (FDIC)</strong>: Insures bank deposits and regulates state-chartered banks</li>
+                <li><strong>State Securities Regulators</strong>: Regulate securities offerings within their states and oversee certain investment advisers</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Regulatory Jurisdiction</h4>
+                <p>Different financial products and services may fall under the jurisdiction of multiple regulators:</p>
+                <ul>
+                    <li>Securities: SEC, FINRA, state securities regulators</li>
+                    <li>Futures and commodities: CFTC, National Futures Association (NFA)</li>
+                    <li>Banking products: Federal Reserve, OCC, FDIC, state banking regulators</li>
+                    <li>Insurance products: State insurance commissioners</li>
+                </ul>
+                <p>Financial professionals must understand which regulators have jurisdiction over their activities and comply with all applicable rules.</p>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2>5.4 Business Conduct Requirements</h2>
+            
+            <p>Securities professionals and firms must adhere to various business conduct requirements to maintain high standards of integrity and protect investors.</p>
+            
+            <h3>Registration and Licensing</h3>
+            <ul>
+                <li><strong>Broker-Dealer Registration</strong>: Firms must register with the SEC and become members of FINRA</li>
+                <li><strong>Representative Registration</strong>: Individuals must pass qualification exams (SIE plus a specialized exam) and register with FINRA</li>
+                <li><strong>Form U4</strong>: Used to register representatives and disclose background information</li>
+                <li><strong>Form U5</strong>: Used to terminate registration and disclose reasons for termination</li>
+                <li><strong>Continuing Education</strong>: Required to maintain registration</li>
+            </ul>
+            
+            <h3>Supervision Requirements</h3>
+            <p>Firms must establish and maintain supervisory systems to ensure compliance with securities laws and regulations.</p>
+            <ul>
+                <li><strong>Written Supervisory Procedures (WSPs)</strong>: Documented policies and procedures</li>
+                <li><strong>Designated Supervisors</strong>: Qualified individuals responsible for supervision</li>
+                <li><strong>Branch Office Inspections</strong>: Regular examinations of branch offices</li>
+                <li><strong>Annual Compliance Meetings</strong>: Required for registered representatives</li>
+                <li><strong>Email Review</strong>: Monitoring of electronic communications</li>
+                <li><strong>Trade Review</strong>: Surveillance of trading activity</li>
+            </ul>
+            
+            <h3>Books and Records Requirements</h3>
+            <p>Firms must maintain accurate books and records of their business activities.</p>
+            <ul>
+                <li>Customer account records</li>
+                <li>Order tickets and trade confirmations</li>
+                <li>Customer complaints</li>
+                <li>Correspondence with the public</li>
+                <li>Financial records</li>
+                <li>Advertising and sales literature</li>
+                <li>Records must be preserved for specified periods (typically 3-6 years)</li>
+            </ul>
+            
+            <h3>Financial and Operational Requirements</h3>
+            <ul>
+                <li><strong>Net Capital Rule</strong>: Requires broker-dealers to maintain minimum levels of liquid assets</li>
+                <li><strong>Customer Protection Rule</strong>: Safeguards customer assets</li>
+                <li><strong>Financial Reporting</strong>: Regular filing of financial statements</li>
+                <li><strong>FOCUS Reports</strong>: Financial and Operational Combined Uniform Single Reports</li>
+                <li><strong>Annual Audits</strong>: Independent verification of financial statements</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Example: Supervisory System</h4>
+                <p>A broker-dealer establishes a supervisory system that includes:</p>
+                <ul>
+                    <li>Written supervisory procedures that detail how each rule will be complied with and who is responsible</li>
+                    <li>Designated principals who review and approve new accounts, transactions, and communications</li>
+                    <li>Regular branch office inspections (annually for OSJs, every three years for non-OSJ branches)</li>
+                    <li>Daily trade reviews to identify potential issues such as excessive trading or unsuitable recommendations</li>
+                    <li>Email surveillance using keywords to flag potentially problematic communications</li>
+                    <li>Annual compliance meetings to educate representatives about regulatory requirements</li>
+                    <li>Annual testing and certification of the supervisory system</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2>5.5 Customer Protection</h2>
+            
+            <p>Various rules and regulations are designed to protect customers and their assets in the securities industry.</p>
+            
+            <h3>Privacy of Customer Information</h3>
+            <ul>
+                <li><strong>Regulation S-P</strong>: Requires financial institutions to:
+                    <ul>
+                        <li>Provide privacy notices to customers</li>
+                        <li>Allow customers to opt out of information sharing with nonaffiliated third parties</li>
+                        <li>Implement safeguards to protect customer information</li>
+                    </ul>
+                </li>
+                <li><strong>Identity Theft Red Flags Rule</strong>: Requires firms to establish programs to detect and prevent identity theft</li>
+                <li><strong>Cybersecurity Requirements</strong>: Firms must protect customer information from cyber threats</li>
+            </ul>
+            
+            <h3>Customer Funds and Securities Protection</h3>
+            <ul>
+                <li><strong>Securities Investor Protection Corporation (SIPC)</strong>:
+                    <ul>
+                        <li>Provides protection for customer accounts at failed broker-dealers</li>
+                        <li>Coverage up to $500,000 per customer (including up to $250,000 for cash)</li>
+                        <li>Does not protect against market losses or fraud</li>
+                        <li>Broker-dealers must be SIPC members</li>
+                    </ul>
+                </li>
+                <li><strong>Customer Protection Rule (SEC Rule 15c3-3)</strong>:
+                    <ul>
+                        <li>Requires segregation of customer assets from firm assets</li>
+                        <li>Requires broker-dealers to maintain a reserve account for customer funds</li>
+                        <li>Limits use of customer securities</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Anti-Money Laundering (AML)</h3>
+            <p>AML requirements are designed to prevent the financial system from being used for money laundering and terrorist financing.</p>
+            <ul>
+                <li><strong>Bank Secrecy Act (BSA)</strong>: Requires financial institutions to assist government agencies in detecting and preventing money laundering</li>
+                <li><strong>USA PATRIOT Act</strong>: Enhanced AML requirements, including:
+                    <ul>
+                        <li>Customer Identification Program (CIP)</li>
+                        <li>Customer Due Diligence (CDD) and Enhanced Due Diligence (EDD)</li>
+                        <li>Monitoring for suspicious activities</li>
+                        <li>Filing Suspicious Activity Reports (SARs)</li>
+                    </ul>
+                </li>
+                <li><strong>FINRA Rule 3310</strong>: Requires firms to establish AML compliance programs</li>
+            </ul>
+            
+            <h3>Senior Investor Protection</h3>
+            <ul>
+                <li><strong>FINRA Rule 2165</strong>: Allows firms to place temporary holds on disbursements when financial exploitation is suspected</li>
+                <li><strong>FINRA Rule 4512</strong>: Requires firms to make reasonable efforts to obtain trusted contact information</li>
+                <li><strong>Senior Safe Act</strong>: Provides immunity for reporting suspected financial exploitation of seniors</li>
+                <li><strong>State Laws</strong>: Many states have enacted laws to protect senior investors</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Red Flags for Financial Exploitation</h4>
+                <p>Securities professionals should be alert to potential signs of financial exploitation, including:</p>
+                <ul>
+                    <li>Sudden changes in investment patterns or account withdrawals</li>
+                    <li>Confusion about transactions or account activity</li>
+                    <li>New individuals accompanying customers to meetings</li>
+                    <li>Changes in power of attorney or account beneficiaries</li>
+                    <li>Isolation from family or friends</li>
+                    <li>Unusual concern about finances or sudden financial hardship</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h3>Chapter Summary</h3>
+            <p>This chapter covered the essential regulatory framework that governs the securities industry and is tested on the SIE exam:</p>
+            <ul>
+                <li><strong>Self-Regulatory Organizations (SROs)</strong>: FINRA, national securities exchanges, and the MSRB establish and enforce rules for their members, operating under SEC oversight.</li>
+                <li><strong>Federal Securities Laws</strong>: The Securities Act of 1933, Securities Exchange Act of 1934, Investment Company Act of 1940, and Investment Advisers Act of 1940 form the foundation of securities regulation, establishing registration requirements, prohibiting fraud, and protecting investors.</li>
+                <li><strong>Regulatory Authorities</strong>: The SEC is the primary federal regulator, with other authorities including the Federal Reserve Board, CFTC, Treasury Department, banking regulators, and state securities regulators having jurisdiction over various aspects of the financial markets.</li>
+                <li><strong>Business Conduct Requirements</strong>: Securities professionals and firms must comply with registration and licensing requirements, supervision obligations, books and records requirements, and financial and operational standards.</li>
+                <li><strong>Customer Protection</strong>: Various rules protect customer information privacy, safeguard customer funds and securities (including SIPC protection), prevent money laundering, and protect senior investors from financial exploitation.</li>
+            </ul>
+            <p>Understanding this regulatory framework is essential for securities professionals to comply with their obligations and for success on the SIE exam.</p>
+        </div>
+
+        <div class="practice-questions">
+            <h2>Practice Questions</h2>
+            
+            <div class="question" id="q1">
+                <h4>1. Which of the following is NOT a self-regulatory organization (SRO)?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> A. FINRA</label>
+                    <label><input type="radio" name="q1" value="b"> B. NYSE</label>
+                    <label><input type="radio" name="q1" value="c"> C. MSRB</label>
+                    <label><input type="radio" name="q1" value="d"> D. SEC</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q1')">Show Answer</button>
+                <div class="answer-explanation" id="a1">
+                    <p><strong>Correct Answer: D. SEC</strong></p>
+                    <p>The Securities and Exchange Commission (SEC) is a federal government agency, not a self-regulatory organization. FINRA (Financial Industry Regulatory Authority), NYSE (New York Stock Exchange), and MSRB (Municipal Securities Rulemaking Board) are all self-regulatory organizations that operate under SEC oversight. SROs are non-governmental organizations that have the authority to create and enforce industry regulations and standards for their members.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q2">
+                <h4>2. Which federal securities law primarily regulates the issuance of new securities and requires registration with the SEC?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> A. Securities Act of 1933</label>
+                    <label><input type="radio" name="q2" value="b"> B. Securities Exchange Act of 1934</label>
+                    <label><input type="radio" name="q2" value="c"> C. Investment Company Act of 1940</label>
+                    <label><input type="radio" name="q2" value="d"> D. Investment Advisers Act of 1940</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q2')">Show Answer</button>
+                <div class="answer-explanation" id="a2">
+                    <p><strong>Correct Answer: A. Securities Act of 1933</strong></p>
+                    <p>The Securities Act of 1933, often called the "truth in securities" law, primarily regulates the issuance of new securities and requires registration with the SEC for public offerings. It focuses on primary market transactions and requires disclosure of material information to investors through registration statements and prospectuses. The Securities Exchange Act of 1934 regulates secondary market trading and created the SEC. The Investment Company Act of 1940 regulates investment companies, and the Investment Advisers Act of 1940 regulates investment advisers.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q3">
+                <h4>3. What is the maximum SIPC protection for securities in a customer's account at a failed broker-dealer?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> A. $100,000</label>
+                    <label><input type="radio" name="q3" value="b"> B. $250,000</label>
+                    <label><input type="radio" name="q3" value="c"> C. $500,000</label>
+                    <label><input type="radio" name="q3" value="d"> D. $1,000,000</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q3')">Show Answer</button>
+                <div class="answer-explanation" id="a3">
+                    <p><strong>Correct Answer: C. $500,000</strong></p>
+                    <p>The Securities Investor Protection Corporation (SIPC) provides protection for customer accounts at failed broker-dealers up to $500,000 per customer, including up to $250,000 for cash. SIPC protection covers customer securities and cash that are missing due to theft, unauthorized trading, or broker-dealer failure. It does not protect against market losses, unsuitable investments, or securities held directly by the customer outside of a brokerage account.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q4">
+                <h4>4. Under FINRA rules, which of the following must be approved by a registered principal before use?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> A. All email communications</label>
+                    <label><input type="radio" name="q4" value="b"> B. Retail communications</label>
+                    <label><input type="radio" name="q4" value="c"> C. Institutional communications</label>
+                    <label><input type="radio" name="q4" value="d"> D. All correspondence</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q4')">Show Answer</button>
+                <div class="answer-explanation" id="a4">
+                    <p><strong>Correct Answer: B. Retail communications</strong></p>
+                    <p>Under FINRA rules, retail communications (communications distributed to more than 25 retail investors) must be approved by a registered principal before use. Correspondence (written communications distributed to 25 or fewer retail investors) does not require prior approval but must be supervised. Institutional communications (distributed exclusively to institutional investors) do not require prior approval but must be subject to a supervisory system. Not all email communications require prior approval; the requirement depends on the nature and distribution of the communication.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q5">
+                <h4>5. Which of the following is a requirement under the USA PATRIOT Act for broker-dealers?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> A. Maintaining a minimum net capital</label>
+                    <label><input type="radio" name="q5" value="b"> B. Implementing a Customer Identification Program (CIP)</label>
+                    <label><input type="radio" name="q5" value="c"> C. Filing annual audited financial statements</label>
+                    <label><input type="radio" name="q5" value="d"> D. Maintaining a special reserve account for customers</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q5')">Show Answer</button>
+                <div class="answer-explanation" id="a5">
+                    <p><strong>Correct Answer: B. Implementing a Customer Identification Program (CIP)</strong></p>
+                    <p>The USA PATRIOT Act requires broker-dealers to implement a Customer Identification Program (CIP) as part of their anti-money laundering compliance program. The CIP must include procedures to verify the identity of customers, maintain records of the information used to verify identity, and check customers against government lists of known or suspected terrorists. Maintaining minimum net capital is required under the SEC's Net Capital Rule. Filing annual audited financial statements is required under SEC Rule 17a-5. Maintaining a special reserve account for customers is required under the Customer Protection Rule (SEC Rule 15c3-3).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="chapter4.html" class="btn">Previous Chapter</a>
+            <a href="final_test.html" class="btn">Final Test</a>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Show answer function
+        function showAnswer(questionId) {
+            document.getElementById('a' + questionId.substring(1)).classList.toggle('show');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

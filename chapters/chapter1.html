@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: SIE Exam Overview and Study Strategies | SIE Exam Course</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Chapter Template Styles */
+        .chapter-container {
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+        
+        .sidebar {
+            width: 280px;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 1.5rem;
+            position: sticky;
+            top: 60px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .sidebar-nav ul {
+            list-style: none;
+        }
+        
+        .sidebar-nav ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s;
+        }
+        
+        .sidebar-nav ul li a:hover,
+        .sidebar-nav ul li a.active {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .sidebar-nav ul li ul {
+            margin-left: 1rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .sidebar-nav ul li.active ul {
+            display: block;
+        }
+        
+        .chapter-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .chapter-header {
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .chapter-header .breadcrumb {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section {
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .chapter-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .chapter-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section ul,
+        .chapter-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section ul li,
+        .chapter-section ol li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .summary-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .summary-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .term-list {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .term-list h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .term-list dl dt {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 1rem;
+        }
+        
+        .term-list dl dd {
+            margin-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .practice-questions {
+            margin: 2rem 0;
+        }
+        
+        .practice-questions h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .question {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question p {
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .options label {
+            display: block;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .options label:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .options input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        .answer-explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e8f4f8;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+        
+        .answer-explanation.show {
+            display: block;
+        }
+        
+        .chapter-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .nav-button.prev::before {
+            content: '← ';
+        }
+        
+        .nav-button.next::after {
+            content: ' →';
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .chapter-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#modules">Course Modules</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../glossary.html">Glossary</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="chapter-container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Course Navigation</div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="chapter1.html" class="active">Chapter 1: SIE Exam Overview</a>
+                        <ul>
+                            <li><a href="#exam-structure">Exam Structure and Format</a></li>
+                            <li><a href="#study-techniques">Effective Study Techniques</a></li>
+                            <li><a href="#test-taking">Test-Taking Strategies</a></li>
+                            <li><a href="#industry-overview">Securities Industry Overview</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="chapter2.html">Chapter 2: Regulatory Entities</a>
+                    </li>
+                    <li>
+                        <a href="chapter3.html">Chapter 3: Market Structure</a>
+                    </li>
+                    <li>
+                        <a href="chapter4.html">Chapter 4: Offerings and Regulations</a>
+                    </li>
+                    <li>
+                        <a href="chapter5.html">Chapter 5: Equity Securities</a>
+                    </li>
+                    <li>
+                        <a href="chapter6.html">Chapter 6: Debt Instruments</a>
+                    </li>
+                    <!-- Additional chapters would be listed here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="chapter-content">
+            <div class="chapter-header">
+                <div class="breadcrumb">Module 1 > Chapter 1</div>
+                <h1>SIE Exam Overview and Study Strategies</h1>
+            </div>
+
+            <div class="chapter-section">
+                <h2>Introduction</h2>
+                <p>Welcome to the Securities Industry Essentials (SIE) Exam Course! This course is specifically designed for engineering graduates transitioning to finance, providing a structured and sequential approach to learning the essential concepts needed to pass the SIE exam.</p>
+                
+                <p>The SIE exam was introduced by FINRA in October 2018 as part of a restructuring of the qualification examination program. It serves as a prerequisite to becoming a registered representative in the securities industry. Unlike the specialized Series exams (such as Series 7, 6, 79, etc.), the SIE exam tests fundamental knowledge common across all areas of the securities industry.</p>
+                
+                <p>In this first chapter, we'll explore the structure and format of the SIE exam, develop effective study techniques tailored to your engineering background, learn test-taking strategies specific to the SIE exam, and gain a broad overview of the securities industry.</p>
+            </div>
+
+            <div class="chapter-section" id="exam-structure">
+                <h2>Exam Structure and Format</h2>
+                
+                <h3>Exam Basics</h3>
+                <p>The SIE exam consists of 75 multiple-choice questions that must be completed within 1 hour and 45 minutes. To pass, you need to achieve a score of 70% or higher. The exam is administered by FINRA at Prometric testing centers nationwide.</p>
+                
+                <h3>Content Areas</h3>
+                <p>The SIE exam covers four main content areas, each with a specific weight:</p>
+                <ul>
+                    <li><strong>Knowledge of Capital Markets (16%, 12 questions)</strong>: Covers regulatory entities, market structure, economic factors, and offerings.</li>
+                    <li><strong>Understanding Products and Their Risks (44%, 33 questions)</strong>: The largest section, covering equity securities, debt instruments, options, packaged products, and investment risks.</li>
+                    <li><strong>Understanding Trading, Customer Accounts and Prohibited Activities (31%, 23 questions)</strong>: Covers trading, settlement, customer accounts, communications, and prohibited activities.</li>
+                    <li><strong>Overview of the Regulatory Framework (9%, 7 questions)</strong>: Covers SRO regulatory requirements and business conduct.</li>
+                </ul>
+                
+                <h3>Question Format</h3>
+                <p>All questions on the SIE exam are multiple-choice with four possible answers. The questions are designed to test your knowledge and understanding of securities industry concepts, rather than your ability to memorize specific facts. Many questions present scenarios that require application of knowledge to real-world situations.</p>
+                
+                <h3>Scoring</h3>
+                <p>The SIE exam uses a scaled scoring system, with scores ranging from 0 to 100. A score of 70 is required to pass. The exam includes 10 additional, unidentified pretest items that do not contribute to your score. These items are randomly distributed throughout the exam and are used to evaluate potential future exam questions.</p>
+            </div>
+
+            <div class="chapter-section" id="study-techniques">
+                <h2>Effective Study Techniques</h2>
+                
+                <h3>Leveraging Your Engineering Background</h3>
+                <p>As an engineering graduate, you have several advantages when studying for the SIE exam:</p>
+                <ul>
+                    <li><strong>Analytical Thinking</strong>: Your ability to break down complex problems will help with understanding intricate financial concepts.</li>
+                    <li><strong>Mathematical Aptitude</strong>: Many financial concepts involve calculations and formulas that will be familiar to you.</li>
+                    <li><strong>Systematic Approach</strong>: Your experience with structured problem-solving aligns well with the methodical study approach needed for the SIE exam.</li>
+                </ul>
+                
+                <h3>Recommended Study Methods</h3>
+                <p>Based on the exam structure and your background, consider these study techniques:</p>
+                <ul>
+                    <li><strong>Sequential Learning</strong>: Follow this course's structured approach, building knowledge progressively.</li>
+                    <li><strong>Concept Mapping</strong>: Create visual representations of how different concepts relate to each other.</li>
+                    <li><strong>Practice Testing</strong>: Regularly test yourself with practice questions to reinforce learning and identify weak areas.</li>
+                    <li><strong>Spaced Repetition</strong>: Review material at increasing intervals to improve long-term retention.</li>
+                    <li><strong>Active Learning</strong>: Explain concepts in your own words, teach others, or create your own examples to deepen understanding.</li>
+                </ul>
+                
+                <h3>Study Schedule</h3>
+                <p>Most candidates spend 50-100 hours studying for the SIE exam. Consider this sample study schedule:</p>
+                <ul>
+                    <li><strong>Weeks 1-2</strong>: Complete Modules 1-2 (Introduction and Capital Markets)</li>
+                    <li><strong>Weeks 3-5</strong>: Complete Module 3 (Products and Risks) - allocate extra time as this is the largest section</li>
+                    <li><strong>Weeks 6-7</strong>: Complete Module 4 (Trading and Accounts)</li>
+                    <li><strong>Week 8</strong>: Complete Module 5 (Regulatory Framework)</li>
+                    <li><strong>Weeks 9-10</strong>: Review and practice with Module 6 (Exam Preparation)</li>
+                </ul>
+            </div>
+
+            <div class="chapter-section" id="test-taking">
+                <h2>Test-Taking Strategies</h2>
+                
+                <h3>Before the Exam</h3>
+                <ul>
+                    <li>Schedule your exam for a time when you're typically most alert.</li>
+                    <li>Visit the testing center location in advance to familiarize yourself with the route and parking.</li>
+                    <li>Get a good night's sleep before the exam.</li>
+                    <li>Bring required identification (usually two forms of ID, including one government-issued photo ID).</li>
+                    <li>Arrive 30 minutes early to complete check-in procedures.</li>
+                </ul>
+                
+                <h3>During the Exam</h3>
+                <ul>
+                    <li><strong>Time Management</strong>: You have about 1.4 minutes per question. Monitor your pace throughout the exam.</li>
+                    <li><strong>Read Carefully</strong>: Pay attention to qualifiers like "EXCEPT," "NOT," "BEST," or "MOST" that can change the meaning of a question.</li>
+                    <li><strong>Process of Elimination</strong>: If unsure, eliminate obviously incorrect answers to improve your odds.</li>
+                    <li><strong>Flag and Return</strong>: If stuck on a question, flag it and return later rather than spending too much time.</li>
+                    <li><strong>Answer Every Question</strong>: There's no penalty for wrong answers, so make an educated guess if necessary.</li>
+                </ul>
+                
+                <h3>Common Question Types</h3>
+                <p>Be prepared for these common question formats:</p>
+                <ul>
+                    <li><strong>Definition Questions</strong>: Testing knowledge of specific terms or concepts.</li>
+                    <li><strong>Calculation Questions</strong>: Requiring mathematical computations (e.g., yield calculations).</li>
+                    <li><strong>Scenario-Based Questions</strong>: Presenting a situation that requires application of knowledge.</li>
+                    <li><strong>Rule-Based Questions</strong>: Testing knowledge of specific regulations or requirements.</li>
+                    <li><strong>Comparison Questions</strong>: Asking to distinguish between similar concepts.</li>
+                </ul>
+            </div>
+
+            <div class="chapter-section" id="industry-overview">
+                <h2>Securities Industry Overview</h2>
+                
+                <h3>Industry Structure</h3>
+                <p>The securities industry in the United States consists of various participants working within a complex regulatory framework:</p>
+                <ul>
+                    <li><strong>Broker-Dealers</strong>: Firms that buy and sell securities for their customers and/or for their own accounts.</li>
+                    <li><strong>Investment Advisers</strong>: Firms or individuals who provide investment advice for compensation.</li>
+                    <li><strong>Investment Companies</strong>: Entities that pool investors' money to invest in securities (e.g., mutual funds).</li>
+                    <li><strong>Exchanges</strong>: Organized marketplaces where securities are traded (e.g., NYSE, Nasdaq).</li>
+                    <li><strong>Regulators</strong>: Government agencies and self-regulatory organizations that oversee the industry.</li>
+                </ul>
+                
+                <h3>Regulatory Framework</h3>
+                <p>The securities industry is regulated at multiple levels:</p>
+                <ul>
+                    <li><strong>Federal Regulation</strong>: The Securities and Exchange Commission (SEC) is the primary federal regulator.</li>
+                    <li><strong>Self-Regulation</strong>: Self-regulatory organizations (SROs) like FINRA oversee their members.</li>
+                    <li><strong>State Regulation</strong>: State securities regulators enforce state securities laws ("blue sky laws").</li>
+                </ul>
+                
+                <h3>Key Legislation</h3>
+                <p>Several major laws form the foundation of securities regulation:</p>
+                <ul>
+                    <li><strong>Securities Act of 1933</strong>: Requires registration of securities offerings and disclosure of material information.</li>
+                    <li><strong>Securities Exchange Act of 1934</strong>: Created the SEC and regulates securities exchanges and broker-dealers.</li>
+                    <li><strong>Investment Company Act of 1940</strong>: Regulates investment companies, including mutual funds.</li>
+                    <li><strong>Investment Advisers Act of 1940</strong>: Regulates investment advisers.</li>
+                    <li><strong>Sarbanes-Oxley Act of 2002</strong>: Enhanced corporate governance and financial disclosure requirements.</li>
+                    <li><strong>Dodd-Frank Act of 2010</strong>: Implemented comprehensive financial regulatory reform after the 2008 crisis.</li>
+                </ul>
+            </div>
+
+            <div class="summary-box">
+                <h3>Chapter Summary</h3>
+                <ul>
+                    <li>The SIE exam consists of 75 multiple-choice questions to be completed in 1 hour and 45 minutes, with a passing score of 70%.</li>
+                    <li>The exam covers four content areas: Capital Markets (16%), Products and Risks (44%), Trading and Accounts (31%), and Regulatory Framework (9%).</li>
+                    <li>Effective study techniques include sequential learning, concept mapping, practice testing, spaced repetition, and active learning.</li>
+                    <li>Test-taking strategies include careful time management, reading questions thoroughly, using process of elimination, and answering every question.</li>
+                    <li>The securities industry operates within a complex regulatory framework established by federal legislation and overseen by agencies like the SEC and FINRA.</li>
+                </ul>
+            </div>
+
+            <div class="term-list">
+                <h3>Key Terms and Acronyms</h3>
+                <dl>
+                    <dt>SIE (Securities Industry Essentials)</dt>
+                    <dd>An introductory-level FINRA exam that tests basic knowledge of the securities industry.</dd>
+                    
+                    <dt>FINRA (Financial Industry Regulatory Authority)</dt>
+                    <dd>A self-regulatory organization that regulates broker-dealers and administers the SIE exam.</dd>
+                    
+                    <dt>SEC (Securities and Exchange Commission)</dt>
+                    <dd>The primary federal regulatory agency for the securities industry.</dd>
+                    
+                    <dt>Broker-Dealer</dt>
+                    <dd>A firm that buys and sells securities for its customers and/or for its own accounts.</dd>
+                    
+                    <dt>SRO (Self-Regulatory Organization)</dt>
+                    <dd>An organization like FINRA that has the power to create and enforce industry regulations.</dd>
+                    
+                    <dt>Blue Sky Laws</dt>
+                    <dd>State securities laws designed to protect investors from fraudulent offerings.</dd>
+                </dl>
+            </div>
+
+            <div class="practice-questions">
+                <h3>Practice Questions</h3>
+                
+                <div class="question" id="question1">
+                    <p>1. What is the passing score for the SIE exam?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="a"> A. 65%</label>
+                        <label><input type="radio" name="q1" value="b"> B. 70%</label>
+                        <label><input type="radio" name="q1" value="c"> C. 72%</label>
+                        <label><input type="radio" name="q1" value="d"> D. 75%</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer1')">Show Answer</button>
+                    <div class="answer-explanation" id="answer1">
+                        <p><strong>Correct Answer: B. 70%</strong></p>
+                        <p>Explanation: The passing score for the SIE exam is 70%. This means you need to answer approximately 53 out of the 75 scored questions correctly to pass the exam.</p>
+                    </div>
+                </div>
+                
+                <div class="question" id="question2">
+                    <p>2. Which content area represents the largest portion of the SIE exam?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="a"> A. Knowledge of Capital Markets</label>
+                        <label><input type="radio" name="q2" value="b"> B. Understanding Products and Their Risks</label>
+                        <label><input type="radio" name="q2" value="c"> C. Understanding Trading, Customer Accounts and Prohibited Activities</label>
+                        <label><input type="radio" name="q2" value="d"> D. Overview of the Regulatory Framework</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer2')">Show Answer</button>
+                    <div class="answer-explanation" id="answer2">
+                        <p><strong>Correct Answer: B. Understanding Products and Their Risks</strong></p>
+                        <p>Explanation: Understanding Products and Their Risks makes up 44% of the exam (approximately 33 questions), making it the largest content area. This section covers equity securities, debt instruments, options, packaged products, and investment risks.</p>
+                    </div>
+                </div>
+                
+                <div class="question" id="question3">
+                    <p>3. Which of the following is NOT one of the major laws forming the foundation of securities regulation?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="a"> A. Securities Act of 1933</label>
+                        <label><input type="radio" name="q3" value="b"> B. Securities Exchange Act of 1934</label>
+                        <label><input type="radio" name="q3" value="c"> C. Banking Reform Act of 1956</label>
+                        <label><input type="radio" name="q3" value="d"> D. Investment Company Act of 1940</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer3')">Show Answer</button>
+                    <div class="answer-explanation" id="answer3">
+                        <p><strong>Correct Answer: C. Banking Reform Act of 1956</strong></p>
+                        <p>Explanation: The Banking Reform Act of 1956 is a fictitious law. The major laws forming the foundation of securities regulation include the Securities Act of 1933, Securities Exchange Act of 1934, Investment Company Act of 1940, Investment Advisers Act of 1940, Sarbanes-Oxley Act of 2002, and Dodd-Frank Act of 2010.</p>
+                    </div>
+                </div>
+                
+                <div class="question" id="question4">
+                    <p>4. How many total questions appear on the SIE exam?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="a"> A. 75</label>
+                        <label><input type="radio" name="q4" value="b"> B. 85</label>
+                        <label><input type="radio" name="q4" value="c"> C. 100</label>
+                        <label><input type="radio" name="q4" value="d"> D. 65</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer4')">Show Answer</button>
+                    <div class="answer-explanation" id="answer4">
+                        <p><strong>Correct Answer: B. 85</strong></p>
+                        <p>Explanation: While the SIE exam has 75 scored questions, it also includes 10 additional unidentified pretest items that do not count toward your score. Therefore, you will see a total of 85 questions on the exam.</p>
+                    </div>
+                </div>
+                
+                <div class="question" id="question5">
+                    <p>5. Which of the following is a self-regulatory organization (SRO)?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="a"> A. SEC</label>
+                        <label><input type="radio" name="q5" value="b"> B. FDIC</label>
+                        <label><input type="radio" name="q5" value="c"> C. FINRA</label>
+                        <label><input type="radio" name="q5" value="d"> D. Federal Reserve</label>
+                    </div>
+                    <button class="btn" onclick="showAnswer('answer5')">Show Answer</button>
+                    <div class="answer-explanation" id="answer5">
+                        <p><strong>Correct Answer: C. FINRA</strong></p>
+                        <p>Explanation: FINRA (Financial Industry Regulatory Authority) is a self-regulatory organization that oversees broker-dealers. The SEC, FDIC, and Federal Reserve are government agencies, not SROs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-navigation">
+                <span></span> <!-- Empty span for flex spacing -->
+                <a href="chapter2.html" class="nav-button next">Next Chapter: Regulatory Entities, Agencies, and Market Participants</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Show answer function
+        function showAnswer(answerId) {
+            document.getElementById(answerId).classList.toggle('show');
+        }
+        
+        // Sidebar active state
+        document.querySelectorAll('.sidebar-nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                // Remove active class from all links
+                document.querySelectorAll('.sidebar-nav ul li a').forEach(l => {
+                    l.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

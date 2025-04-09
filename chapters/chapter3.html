@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products and Their Risks | SIE Exam Course</title>
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-bg: #f5f5f5;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .chapter-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .chapter-header p {
+            color: var(--secondary-color);
+        }
+        
+        .chapter-section {
+            margin-bottom: 2rem;
+        }
+        
+        .chapter-section h2 {
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .chapter-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .chapter-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-section ul,
+        .chapter-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chapter-section ul li,
+        .chapter-section ol li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .key-concept {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .key-concept h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .example {
+            background-color: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .example h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .formula {
+            background-color: #e8f4f8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table th {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        .summary {
+            background-color: #e8f4f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .summary h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .practice-questions {
+            margin: 2rem 0;
+        }
+        
+        .question {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .question h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .options {
+            margin-top: 1rem;
+        }
+        
+        .options label {
+            display: block;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .options label:hover {
+            background-color: #e8e8e8;
+        }
+        
+        .options input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        .answer-explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e8f4f8;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+        
+        .answer-explanation.show {
+            display: block;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e67e22;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>SIE <span>Exam Course</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#modules">Course Modules</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="memory_aids.html">Memory Aids</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="study_guide.html">Study Guide</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="chapter-container">
+        <div class="chapter-header">
+            <h1>Chapter 3: Products and Their Risks</h1>
+            <p>Understanding investment products and the risks associated with them</p>
+        </div>
+
+        <div class="chapter-section">
+            <h2>3.1 Equity Securities</h2>
+            
+            <p>Equity securities represent ownership in a company and are a fundamental component of the securities industry. Understanding their characteristics, types, and associated risks is essential for the SIE exam.</p>
+            
+            <h3>Common Stock</h3>
+            <p>Common stock represents basic ownership in a corporation and typically includes voting rights. As an owner, common stockholders have certain rights and privileges:</p>
+            <ul>
+                <li><strong>Voting Rights</strong>: Typically one vote per share on major corporate matters such as electing the board of directors</li>
+                <li><strong>Dividends</strong>: Right to receive dividends when declared by the board of directors, though dividends are not guaranteed</li>
+                <li><strong>Liquidation Rights</strong>: Residual claim on assets after creditors and preferred stockholders are paid</li>
+                <li><strong>Preemptive Rights</strong>: In some cases, the right to maintain proportional ownership by purchasing new shares before they're offered to the public</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Par Value vs. Market Value</h4>
+                <p>Par value is the nominal or face value of a stock certificate as stated in the corporate charter. It has little relationship to the actual market value of the stock, which is determined by supply and demand in the marketplace. Many modern stocks are issued with very low par values (e.g., $0.01) or as "no par" stock.</p>
+            </div>
+            
+            <h3>Preferred Stock</h3>
+            <p>Preferred stock is a hybrid security with characteristics of both stocks and bonds. Key features include:</p>
+            <ul>
+                <li><strong>Fixed Dividends</strong>: Typically pays a fixed or stated dividend that must be paid before common stock dividends</li>
+                <li><strong>Preference in Liquidation</strong>: Priority over common stockholders in claims on assets during liquidation</li>
+                <li><strong>Limited Voting Rights</strong>: Usually has limited or no voting rights</li>
+                <li><strong>Potential for Callability</strong>: May be callable, allowing the issuer to redeem shares at a predetermined price</li>
+            </ul>
+            
+            <p>Preferred stock may have additional features:</p>
+            <ul>
+                <li><strong>Cumulative</strong>: Unpaid dividends accumulate and must be paid before any common stock dividends</li>
+                <li><strong>Non-cumulative</strong>: Unpaid dividends do not accumulate</li>
+                <li><strong>Convertible</strong>: Can be converted into a specified number of common shares</li>
+                <li><strong>Participating</strong>: Entitles holders to receive additional dividends beyond the stated rate if certain conditions are met</li>
+            </ul>
+            
+            <h3>Rights and Warrants</h3>
+            <p>Rights and warrants are derivatives that give holders the option to purchase securities at specified prices.</p>
+            
+            <p><strong>Stock Rights</strong>:</p>
+            <ul>
+                <li>Short-term instruments (typically 2-4 weeks) issued to existing shareholders</li>
+                <li>Allow purchase of additional shares at a discount before a new issue</li>
+                <li>Protect against dilution of ownership</li>
+                <li>Can be transferred or sold</li>
+            </ul>
+            
+            <p><strong>Warrants</strong>:</p>
+            <ul>
+                <li>Long-term instruments (often several years)</li>
+                <li>Give the right to buy stock at a specified price (exercise price)</li>
+                <li>Often issued with bonds as "sweeteners"</li>
+                <li>Trade separately from the underlying security</li>
+                <li>Generally have speculative value and higher risk</li>
+            </ul>
+            
+            <h3>American Depositary Receipts (ADRs)</h3>
+            <p>ADRs represent ownership in the shares of foreign companies and trade on U.S. exchanges.</p>
+            <ul>
+                <li>Denominated in U.S. dollars</li>
+                <li>Trade, clear, and settle like U.S. securities</li>
+                <li>May represent one share, multiple shares, or a fraction of a share of the foreign company</li>
+                <li>Subject to both U.S. and foreign market risks</li>
+                <li>May involve currency exchange risk</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Example: ADR Structure</h4>
+                <p>A U.S. bank purchases shares of a foreign company on its local exchange, holds them in custody, and issues ADRs to U.S. investors. If an ADR represents two foreign shares and the foreign shares trade at €50 each, with an exchange rate of €1 = $1.10, the ADR would be worth approximately $110 (2 × €50 × $1.10).</p>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2>3.2 Debt Instruments</h2>
+            
+            <p>Debt instruments represent loans made by investors to issuers who promise to repay the principal with interest. Understanding the characteristics and risks of various debt securities is crucial for the SIE exam.</p>
+            
+            <h3>Key Characteristics of Bonds</h3>
+            <ul>
+                <li><strong>Par Value (Face Value)</strong>: The amount the issuer promises to repay at maturity, typically $1,000 for corporate bonds</li>
+                <li><strong>Coupon Rate</strong>: The annual interest rate paid on the bond's face value</li>
+                <li><strong>Maturity Date</strong>: The date when the principal amount is repaid</li>
+                <li><strong>Yield</strong>: The return on investment, which may differ from the coupon rate depending on the purchase price</li>
+                <li><strong>Credit Quality</strong>: The issuer's ability to make timely interest and principal payments</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Bond Pricing and Interest Rates</h4>
+                <p>Bond prices and interest rates have an inverse relationship. When interest rates rise, bond prices fall, and vice versa. This is because existing bonds with lower coupon rates become less attractive when new bonds are issued with higher rates, causing their market value to decline.</p>
+            </div>
+            
+            <h3>U.S. Treasury Securities</h3>
+            <p>Treasury securities are issued by the U.S. Department of the Treasury and are backed by the full faith and credit of the U.S. government.</p>
+            
+            <p><strong>Treasury Bills (T-Bills)</strong>:</p>
+            <ul>
+                <li>Short-term securities with maturities of 4, 8, 13, 26, or 52 weeks</li>
+                <li>Sold at a discount to face value (zero-coupon)</li>
+                <li>Exempt from state and local taxes</li>
+            </ul>
+            
+            <p><strong>Treasury Notes (T-Notes)</strong>:</p>
+            <ul>
+                <li>Intermediate-term securities with maturities of 2, 3, 5, 7, or 10 years</li>
+                <li>Pay semiannual interest</li>
+                <li>Exempt from state and local taxes</li>
+            </ul>
+            
+            <p><strong>Treasury Bonds (T-Bonds)</strong>:</p>
+            <ul>
+                <li>Long-term securities with maturities of 20 or 30 years</li>
+                <li>Pay semiannual interest</li>
+                <li>Exempt from state and local taxes</li>
+            </ul>
+            
+            <p><strong>Treasury Inflation-Protected Securities (TIPS)</strong>:</p>
+            <ul>
+                <li>Principal adjusts with inflation as measured by the Consumer Price Index (CPI)</li>
+                <li>Pay semiannual interest on the adjusted principal</li>
+                <li>Provide protection against inflation</li>
+            </ul>
+            
+            <h3>Municipal Bonds</h3>
+            <p>Municipal bonds are issued by state and local governments and their agencies to fund public projects.</p>
+            
+            <p><strong>General Obligation Bonds (GO Bonds)</strong>:</p>
+            <ul>
+                <li>Backed by the full faith, credit, and taxing power of the issuer</li>
+                <li>Considered more secure than revenue bonds</li>
+                <li>Require voter approval in many jurisdictions</li>
+            </ul>
+            
+            <p><strong>Revenue Bonds</strong>:</p>
+            <ul>
+                <li>Repaid from the revenue generated by the specific project they fund (e.g., toll roads, airports)</li>
+                <li>Not backed by the full faith and credit of the issuer</li>
+                <li>Higher risk than GO bonds</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Municipal Bond Tax Treatment</h4>
+                <p>Interest from municipal bonds is generally exempt from federal income tax. If the bonds are issued by the state where the investor resides, the interest may also be exempt from state and local taxes (triple tax-exempt). However, capital gains from selling municipal bonds are subject to federal taxes, and some municipal bond interest may be subject to the Alternative Minimum Tax (AMT).</p>
+            </div>
+            
+            <h3>Corporate Bonds</h3>
+            <p>Corporate bonds are issued by corporations to raise capital for various purposes such as expansion, acquisitions, or refinancing existing debt.</p>
+            
+            <p><strong>Secured Bonds</strong>:</p>
+            <ul>
+                <li>Backed by specific assets of the issuer (collateral)</li>
+                <li>Examples include mortgage bonds and equipment trust certificates</li>
+                <li>Lower risk than unsecured bonds</li>
+            </ul>
+            
+            <p><strong>Unsecured Bonds (Debentures)</strong>:</p>
+            <ul>
+                <li>Backed only by the issuer's general creditworthiness</li>
+                <li>Higher risk than secured bonds</li>
+                <li>May have subordinated debentures with lower priority in bankruptcy</li>
+            </ul>
+            
+            <p><strong>Convertible Bonds</strong>:</p>
+            <ul>
+                <li>Can be converted into a specified number of common shares</li>
+                <li>Offer potential for capital appreciation if the stock price rises</li>
+                <li>Typically offer lower coupon rates than non-convertible bonds</li>
+            </ul>
+            
+            <h3>Other Debt Instruments</h3>
+            
+            <p><strong>Zero-Coupon Bonds</strong>:</p>
+            <ul>
+                <li>Do not pay periodic interest</li>
+                <li>Sold at a deep discount to face value</li>
+                <li>Return comes from the difference between purchase price and face value at maturity</li>
+                <li>Higher interest rate risk than coupon-bearing bonds</li>
+            </ul>
+            
+            <p><strong>Asset-Backed Securities (ABS)</strong>:</p>
+            <ul>
+                <li>Backed by pools of assets such as auto loans, credit card receivables, or student loans</li>
+                <li>Provide diversification and potentially higher yields</li>
+                <li>Subject to prepayment risk and credit risk</li>
+            </ul>
+            
+            <p><strong>Mortgage-Backed Securities (MBS)</strong>:</p>
+            <ul>
+                <li>Backed by pools of mortgages</li>
+                <li>Include agency MBS (issued by Ginnie Mae, Fannie Mae, or Freddie Mac) and non-agency MBS</li>
+                <li>Subject to prepayment risk when interest rates fall and extension risk when rates rise</li>
+            </ul>
+        </div>
+
+        <div class="chapter-section">
+            <h2>3.3 Options</h2>
+            
+            <p>Options are derivative contracts that give the holder the right, but not the obligation, to buy or sell an underlying asset at a specified price within a specific time period.</p>
+            
+            <h3>Basic Option Types</h3>
+            
+            <p><strong>Call Options</strong>:</p>
+            <ul>
+                <li>Give the holder the right to buy the underlying asset at the strike price</li>
+                <li>Buyers are bullish on the underlying asset</li>
+                <li>Sellers (writers) are neutral to bearish</li>
+                <li>Buyers have limited risk (premium paid) and unlimited potential gain</li>
+                <li>Sellers have limited gain (premium received) and unlimited potential risk</li>
+            </ul>
+            
+            <p><strong>Put Options</strong>:</p>
+            <ul>
+                <li>Give the holder the right to sell the underlying asset at the strike price</li>
+                <li>Buyers are bearish on the underlying asset</li>
+                <li>Sellers (writers) are neutral to bullish</li>
+                <li>Buyers have limited risk (premium paid) and substantial potential gain</li>
+                <li>Sellers have limited gain (premium received) and substantial potential risk</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Option Premium Components</h4>
+                <p>The premium of an option consists of two components:</p>
+                <ul>
+                    <li><strong>Intrinsic Value</strong>: The amount by which the option is in-the-money (if any)</li>
+                    <li><strong>Time Value</strong>: The additional value beyond intrinsic value, reflecting the probability that the option will increase in value before expiration</li>
+                </ul>
+                <p>As expiration approaches, time value decreases, a phenomenon known as time decay or theta.</p>
+            </div>
+            
+            <h3>Option Styles</h3>
+            <ul>
+                <li><strong>American Options</strong>: Can be exercised at any time before expiration</li>
+                <li><strong>European Options</strong>: Can only be exercised at expiration</li>
+            </ul>
+            
+            <h3>Option Strategies</h3>
+            
+            <p><strong>Covered Call</strong>:</p>
+            <ul>
+                <li>Owning the underlying asset and selling a call option against it</li>
+                <li>Generates income from the premium received</li>
+                <li>Limits potential upside gain</li>
+                <li>Provides limited downside protection (by the amount of the premium)</li>
+            </ul>
+            
+            <p><strong>Protective Put</strong>:</p>
+            <ul>
+                <li>Owning the underlying asset and buying a put option on it</li>
+                <li>Acts as insurance against a decline in the asset's value</li>
+                <li>Limits downside risk while maintaining upside potential</li>
+                <li>Costs the premium paid for the put</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Example: Covered Call Strategy</h4>
+                <p>An investor owns 100 shares of XYZ stock trading at $50 per share. The investor sells a call option with a strike price of $55 for a premium of $2 per share. If the stock price remains below $55 at expiration, the option expires worthless, and the investor keeps the $200 premium. If the stock price rises above $55, the investor's gain is limited to $5 per share plus the $2 premium, for a total of $7 per share.</p>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2>3.4 Packaged Products</h2>
+            
+            <p>Packaged products combine multiple securities into a single investment vehicle, offering diversification and professional management.</p>
+            
+            <h3>Mutual Funds</h3>
+            <p>Mutual funds pool money from many investors to purchase a portfolio of securities managed by professional investment advisers.</p>
+            
+            <p><strong>Key Characteristics</strong>:</p>
+            <ul>
+                <li>Shares are priced once per day at net asset value (NAV)</li>
+                <li>Open-end funds issue and redeem shares directly with investors</li>
+                <li>Closed-end funds issue a fixed number of shares that trade on exchanges</li>
+                <li>Professional management and diversification</li>
+                <li>Various investment objectives (growth, income, balanced, etc.)</li>
+            </ul>
+            
+            <p><strong>Mutual Fund Costs</strong>:</p>
+            <ul>
+                <li><strong>Sales Charges (Loads)</strong>: Front-end load, back-end load, or no-load</li>
+                <li><strong>Expense Ratio</strong>: Annual operating expenses as a percentage of assets</li>
+                <li><strong>12b-1 Fees</strong>: Marketing and distribution expenses</li>
+                <li><strong>Redemption Fees</strong>: Charges for selling shares within a specified period</li>
+            </ul>
+            
+            <h3>Exchange-Traded Funds (ETFs)</h3>
+            <p>ETFs are investment funds that trade on exchanges like stocks while typically tracking an index.</p>
+            
+            <p><strong>Key Characteristics</strong>:</p>
+            <ul>
+                <li>Trade throughout the day at market-determined prices</li>
+                <li>Generally more tax-efficient than mutual funds</li>
+                <li>Typically have lower expense ratios than mutual funds</li>
+                <li>Most are passively managed to track an index</li>
+                <li>Creation/redemption process involves authorized participants</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: ETFs vs. Mutual Funds</h4>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>ETFs</th>
+                        <th>Mutual Funds</th>
+                    </tr>
+                    <tr>
+                        <td>Trading</td>
+                        <td>Throughout the day at market prices</td>
+                        <td>Once per day at NAV</td>
+                    </tr>
+                    <tr>
+                        <td>Minimum Investment</td>
+                        <td>Price of one share</td>
+                        <td>Often $1,000 or more</td>
+                    </tr>
+                    <tr>
+                        <td>Tax Efficiency</td>
+                        <td>Generally more tax-efficient</td>
+                        <td>May generate more capital gains distributions</td>
+                    </tr>
+                    <tr>
+                        <td>Expense Ratios</td>
+                        <td>Typically lower</td>
+                        <td>Typically higher</td>
+                    </tr>
+                    <tr>
+                        <td>Management Style</td>
+                        <td>Mostly passive</td>
+                        <td>Both active and passive</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Real Estate Investment Trusts (REITs)</h3>
+            <p>REITs are companies that own, operate, or finance income-producing real estate.</p>
+            
+            <p><strong>Key Characteristics</strong>:</p>
+            <ul>
+                <li>Must distribute at least 90% of taxable income to shareholders annually</li>
+                <li>Exempt from corporate income tax on distributed income</li>
+                <li>Provide liquidity for real estate investments</li>
+                <li>Types include equity REITs, mortgage REITs, and hybrid REITs</li>
+                <li>May focus on specific property types (residential, commercial, healthcare, etc.)</li>
+            </ul>
+            
+            <h3>Unit Investment Trusts (UITs)</h3>
+            <p>UITs are investment companies that offer a fixed portfolio of securities for a specified period.</p>
+            
+            <p><strong>Key Characteristics</strong>:</p>
+            <ul>
+                <li>Fixed, unmanaged portfolio</li>
+                <li>Defined termination date</li>
+                <li>No active trading of portfolio securities</li>
+                <li>Redeemable at NAV, which may include a deferred sales charge</li>
+                <li>May focus on stocks, bonds, or other securities</li>
+            </ul>
+            
+            <h3>Variable Annuities</h3>
+            <p>Variable annuities are insurance contracts that provide tax-deferred growth potential and a future income stream.</p>
+            
+            <p><strong>Key Characteristics</strong>:</p>
+            <ul>
+                <li>Investment component with various subaccounts (similar to mutual funds)</li>
+                <li>Insurance component with death benefit</li>
+                <li>Tax-deferred growth</li>
+                <li>Annuitization options for income</li>
+                <li>Various fees including mortality and expense risk charges, administrative fees, and subaccount expenses</li>
+                <li>Surrender charges for early withdrawals</li>
+            </ul>
+            
+            <div class="example">
+                <h4>Example: Variable Annuity Fees</h4>
+                <p>A variable annuity might have the following fee structure: mortality and expense risk charge (1.25%), administrative fee (0.15%), average subaccount expense (1.00%), and optional living benefit rider (1.00%). The total annual expenses would be 3.40% of the account value, significantly higher than most mutual funds or ETFs.</p>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2>3.5 Investment Risks</h2>
+            
+            <p>Understanding the various types of investment risks is crucial for making informed investment decisions and for success on the SIE exam.</p>
+            
+            <h3>Market Risk</h3>
+            <p>Market risk, also known as systematic risk, is the risk of investments declining in value due to economic developments or other events that affect the entire market.</p>
+            <ul>
+                <li>Cannot be eliminated through diversification</li>
+                <li>Affects all securities to some degree</li>
+                <li>Examples include recessions, political instability, and natural disasters</li>
+                <li>Measured by beta for equity securities</li>
+            </ul>
+            
+            <h3>Interest Rate Risk</h3>
+            <p>Interest rate risk is the risk that changes in interest rates will affect the value of investments, particularly fixed-income securities.</p>
+            <ul>
+                <li>Bond prices move inversely to interest rates</li>
+                <li>Longer-term bonds have greater interest rate risk than shorter-term bonds</li>
+                <li>Measured by duration and convexity</li>
+                <li>Affects fixed-income securities most directly but can impact all asset classes</li>
+            </ul>
+            
+            <h3>Credit/Default Risk</h3>
+            <p>Credit risk is the risk that an issuer will fail to make timely interest or principal payments or that the value of a security will decline due to concerns about the issuer's ability to make payments.</p>
+            <ul>
+                <li>Evaluated by credit rating agencies (S&P, Moody's, Fitch)</li>
+                <li>Higher for lower-rated bonds (high-yield or "junk" bonds)</li>
+                <li>Can be reduced through diversification</li>
+                <li>Includes default risk, credit spread risk, and downgrade risk</li>
+            </ul>
+            
+            <h3>Liquidity Risk</h3>
+            <p>Liquidity risk is the risk that an investment cannot be bought or sold quickly enough to prevent or minimize a loss.</p>
+            <ul>
+                <li>Higher for thinly traded securities and alternative investments</li>
+                <li>Can result in wider bid-ask spreads</li>
+                <li>May be exacerbated during market stress</li>
+                <li>Can affect the ability to exit positions at desired prices</li>
+            </ul>
+            
+            <h3>Inflation Risk</h3>
+            <p>Inflation risk, also called purchasing power risk, is the risk that inflation will erode the real value of investment returns.</p>
+            <ul>
+                <li>Particularly significant for fixed-income investments with fixed cash flows</li>
+                <li>Can be mitigated with inflation-protected securities (TIPS) or investments that historically outpace inflation</li>
+                <li>Affects the real (inflation-adjusted) return on investments</li>
+            </ul>
+            
+            <h3>Political and Regulatory Risk</h3>
+            <p>Political and regulatory risk is the risk that government actions, political events, or changes in regulations will adversely affect investments.</p>
+            <ul>
+                <li>Can impact specific industries or the broader market</li>
+                <li>Examples include tax law changes, trade policies, and environmental regulations</li>
+                <li>May be higher in emerging markets or politically unstable regions</li>
+            </ul>
+            
+            <h3>Currency/Foreign Exchange Risk</h3>
+            <p>Currency risk is the risk that changes in exchange rates will negatively impact the value of international investments.</p>
+            <ul>
+                <li>Affects investments denominated in foreign currencies</li>
+                <li>Can enhance or detract from returns independent of the underlying investment's performance</li>
+                <li>Can be hedged using currency forwards, futures, or options</li>
+                <li>Relevant for ADRs, international mutual funds, and direct foreign investments</li>
+            </ul>
+            
+            <div class="key-concept">
+                <h4>Key Concept: Diversification and Risk Management</h4>
+                <p>Diversification is the practice of spreading investments across various asset classes, sectors, and geographic regions to reduce risk. While it cannot eliminate systematic risk (market risk), it can significantly reduce unsystematic risk (company-specific or industry-specific risk). Effective diversification requires investments with low or negative correlations to each other.</p>
+            </div>
+            
+            <h3>Other Investment Risks</h3>
+            <ul>
+                <li><strong>Business Risk</strong>: Risk specific to a company or industry</li>
+                <li><strong>Reinvestment Risk</strong>: Risk that future proceeds will have to be reinvested at lower interest rates</li>
+                <li><strong>Call Risk</strong>: Risk that a bond issuer will redeem the bond before maturity</li>
+                <li><strong>Prepayment Risk</strong>: Risk that borrowers will pay off debt early, particularly in mortgage-backed securities</li>
+                <li><strong>Longevity Risk</strong>: Risk of outliving one's assets in retirement</li>
+                <li><strong>Event Risk</strong>: Risk of an unexpected event negatively impacting investments</li>
+            </ul>
+        </div>
+
+        <div class="summary">
+            <h3>Chapter Summary</h3>
+            <p>This chapter covered the essential investment products and their associated risks that are tested on the SIE exam:</p>
+            <ul>
+                <li><strong>Equity Securities</strong>: Common stock, preferred stock, rights, warrants, and ADRs represent ownership in companies with varying rights, privileges, and risk profiles.</li>
+                <li><strong>Debt Instruments</strong>: Treasury securities, municipal bonds, corporate bonds, and other debt instruments represent loans to issuers with different credit qualities, maturities, and tax treatments.</li>
+                <li><strong>Options</strong>: Call and put options provide the right to buy or sell underlying assets at specified prices within specific time periods, with various strategies for income generation and risk management.</li>
+                <li><strong>Packaged Products</strong>: Mutual funds, ETFs, REITs, UITs, and variable annuities offer diversification and professional management with different structures, costs, and tax implications.</li>
+                <li><strong>Investment Risks</strong>: Various risks including market risk, interest rate risk, credit risk, liquidity risk, inflation risk, political risk, and currency risk affect different investments to varying degrees and can be managed through diversification and other strategies.</li>
+            </ul>
+            <p>Understanding these products and risks is crucial for success on the SIE exam and for providing appropriate investment recommendations in the securities industry.</p>
+        </div>
+
+        <div class="practice-questions">
+            <h2>Practice Questions</h2>
+            
+            <div class="question" id="q1">
+                <h4>1. Which of the following is a characteristic of preferred stock?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> A. Typically has voting rights equal to common stock</label>
+                    <label><input type="radio" name="q1" value="b"> B. Represents the residual claim on assets in liquidation</label>
+                    <label><input type="radio" name="q1" value="c"> C. Pays a fixed or stated dividend before common stock dividends</label>
+                    <label><input type="radio" name="q1" value="d"> D. Always has a maturity date</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q1')">Show Answer</button>
+                <div class="answer-explanation" id="a1">
+                    <p><strong>Correct Answer: C. Pays a fixed or stated dividend before common stock dividends</strong></p>
+                    <p>Preferred stock typically pays a fixed or stated dividend that must be paid before any dividends are paid to common stockholders. Preferred stock usually has limited or no voting rights (not equal to common stock), has priority over common stock in liquidation (but is not the residual claim), and does not have a maturity date (unlike bonds).</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q2">
+                <h4>2. What happens to bond prices when interest rates rise?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> A. Bond prices rise</label>
+                    <label><input type="radio" name="q2" value="b"> B. Bond prices fall</label>
+                    <label><input type="radio" name="q2" value="c"> C. Bond prices remain unchanged</label>
+                    <label><input type="radio" name="q2" value="d"> D. Bond prices may rise or fall depending on the issuer</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q2')">Show Answer</button>
+                <div class="answer-explanation" id="a2">
+                    <p><strong>Correct Answer: B. Bond prices fall</strong></p>
+                    <p>Bond prices and interest rates have an inverse relationship. When interest rates rise, bond prices fall. This is because new bonds are issued with higher coupon rates, making existing bonds with lower coupon rates less attractive. To compensate, the market price of existing bonds falls to provide a competitive yield to investors.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q3">
+                <h4>3. Which of the following is a characteristic of a call option?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> A. The right to sell a security at a specified price</label>
+                    <label><input type="radio" name="q3" value="b"> B. The right to buy a security at a specified price</label>
+                    <label><input type="radio" name="q3" value="c"> C. The obligation to buy a security at a specified price</label>
+                    <label><input type="radio" name="q3" value="d"> D. The obligation to sell a security at a specified price</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q3')">Show Answer</button>
+                <div class="answer-explanation" id="a3">
+                    <p><strong>Correct Answer: B. The right to buy a security at a specified price</strong></p>
+                    <p>A call option gives the holder the right, but not the obligation, to buy the underlying security at a specified price (the strike price) within a specific time period. A put option gives the right to sell a security. Option buyers have rights, while option sellers (writers) have obligations.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q4">
+                <h4>4. Which of the following investment products is priced once per day at net asset value (NAV)?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> A. Exchange-traded fund (ETF)</label>
+                    <label><input type="radio" name="q4" value="b"> B. Common stock</label>
+                    <label><input type="radio" name="q4" value="c"> C. Open-end mutual fund</label>
+                    <label><input type="radio" name="q4" value="d"> D. Closed-end fund</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q4')">Show Answer</button>
+                <div class="answer-explanation" id="a4">
+                    <p><strong>Correct Answer: C. Open-end mutual fund</strong></p>
+                    <p>Open-end mutual funds are priced once per day at net asset value (NAV), which is calculated after the market closes. ETFs, common stocks, and closed-end funds trade throughout the day at market-determined prices that may differ from their NAV.</p>
+                </div>
+            </div>
+            
+            <div class="question" id="q5">
+                <h4>5. Which of the following risks CANNOT be reduced through diversification?</h4>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> A. Business risk</label>
+                    <label><input type="radio" name="q5" value="b"> B. Market risk</label>
+                    <label><input type="radio" name="q5" value="c"> C. Credit risk</label>
+                    <label><input type="radio" name="q5" value="d"> D. Industry-specific risk</label>
+                </div>
+                <button class="btn" onclick="showAnswer('q5')">Show Answer</button>
+                <div class="answer-explanation" id="a5">
+                    <p><strong>Correct Answer: B. Market risk</strong></p>
+                    <p>Market risk, also known as systematic risk, affects the entire market and cannot be eliminated through diversification. Business risk, credit risk, and industry-specific risk are examples of unsystematic risk that can be reduced through proper diversification across different companies, sectors, and asset classes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="chapter2.html" class="btn">Previous Chapter</a>
+            <a href="chapter4.html" class="btn">Next Chapter</a>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('show');
+        });
+        
+        // Show answer function
+        function showAnswer(questionId) {
+            document.getElementById('a' + questionId.substring(1)).classList.toggle('show');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
